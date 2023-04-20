@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курорты</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/selection_equipment.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
+                    <div id="sublink1" class="dropdown-content">
+                        <a href="http://localhost:8100/cart">Горные лыжи</a>
+                        <a href="http://localhost:8100/cart">Сноуборд</a>
+                        <a href="http://localhost:8100/cart">Аксессуары</a>
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="selection_title_container">
+        <div class="selection_title_container_item">
+            <div class="selection_title_container_item_theme">Подбор горнолыжного снаряжения</div>
+        </div>
+    </div>
+
+    <div id="sel_content" class="wrapper">
+        <div id="q0">
+            <div class="title_question">Выберите вид горного спорта</div>
+            <div class="question">
+                <input type="button" class="double-border-button" id="button_sport1" value="Сноуборд">
+                <input type="button" class="double-border-button" id="button_sport2" value="Лыжи">
+            </div>
+        </div>
+        <div id="q1">
+            <div class="title_question">Оцените уровень своего катания</div>
+            <div class="question">
+                <input type="button" class="double-border-button" id="button_skill1" value="Начинающий">
+                <input type="button" class="double-border-button" id="button_skill2" value="Продвинутый">
+                <input type="button" class="double-border-button" id="button_skill3" value="Эксперт">
+            </div>
+        </div>
+        <div id="q2">
+            <div class="title_question">Выберите пол</div>
+            <div class="question">
+                <input type="button" class="double-border-button" id="button_gender1" value="Мужской">
+                <input type="button" class="double-border-button" id="button_gender2" value="Женский">
+                <input type="button" class="double-border-button" id="button_gender3" value="Детский">
+            </div>
+        </div>
+        <div id="q3">
+            <div class="title_question">Выберите вес из предложенных диапазонов</div>
+            <div class="question">
+                <input type="button" class="double-border-button" id="button_weight1" value="Меньше 49">
+                <input type="button" class="double-border-button" id="button_weight2" value="50-59">
+                <input type="button" class="double-border-button" id="button_weight3" value="60-69">
+                <input type="button" class="double-border-button" id="button_weight4" value="70-79">
+                <input type="button" class="double-border-button" id="button_weight5" value="80-89">
+                <input type="button" class="double-border-button" id="button_weight6" value="Больше 90">
+            </div>
+        </div>
+        <div id="q4">
+            <div class="title_question">Выберите рост из предложенных диапазонов</div>
+            <div class="question">
+                <input type="button" class="double-border-button" id="button_height1" value="Меньше 124">
+                <input type="button" class="double-border-button" id="button_height2" value="125-139">
+                <input type="button" class="double-border-button" id="button_height3" value="140-154">
+                <input type="button" class="double-border-button" id="button_height4" value="155-169">
+                <input type="button" class="double-border-button" id="button_height5" value="170-184">
+                <input type="button" class="double-border-button" id="button_height6" value="Больше 185">
+            </div>
+        </div>
+        <div id="q5" class="but_search">
+            <div><a onclick="location.href='/cart?'+link()" class="button_selection">Подобрать снаряжение</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="selection_content">
+
+
+
+
+        <div th:if="${mainItem != null}" id="gtco-post-list">
+            <div class="entry">
+                <a href="./blog_sample.html">
+                    <div class="asd">
+                        <div class="entry-img" th:style="'background-image: url(../images/' + ${mainItem.getItemPicturePath()} + ')'">
+
+                        </div>
+                        <div class="entry-desc">
+                            <div th:text="${mainItem.getItemName()}" class="title_eq">
+                                Название
+                            </div>
+                            <div th:text="${mainItem.getItemDescription()}" class="descr_eq">
+                                Описание
+                            </div>
+                            <div class="size_eq">
+                                Рекомендуемая длина:&nbsp;
+                                <div th:if="${len} == null" class="size_num">
+                                     Не указано
+                                </div>
+                                <div th:if="${len} != null" th:text="${len}" class="size_num">
+                                    Не указано
+                                </div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div th:if="${boots} != null" id="gtco-post-list">
+            <div class="entry">
+                <a href="./blog_sample.html">
+                    <div class="asd">
+                        <div class="entry-img" th:style="'background-image: url(../images/' + ${boots.getItemPicturePath()} + ')'">
+
+                        </div>
+                        <div class="entry-desc">
+                            <div th:text="${boots.getItemName()}" class="title_eq">
+                                Название
+                            </div>
+                            <div th:text="${boots.getItemDescription()}" class="descr_eq">
+                                Описание
+                            </div>
+                            <div class="size_eq">
+                                Размер:&nbsp;
+                                <div class="size_num">
+                                    Зависит от длины и ширины стопы. Следует уточнить в магазине.
+                                </div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div th:if="${mount} != null" id="gtco-post-list">
+            <div class="entry">
+                <a href="./blog_sample.html">
+                    <div class="asd">
+                        <div class="entry-img" th:style="'background-image: url(../images/' + ${mount.getItemPicturePath()} + ')'">
+
+                        </div>
+                        <div class="entry-desc">
+                            <div th:text="${mount.getItemName()}" class="title_eq">
+                                Название
+                            </div>
+                            <div th:text="${mount.getItemDescription()}" class="descr_eq">
+                                Описание
+                            </div>
+                            <div class="size_eq">
+                                Размер:&nbsp;
+                                <div class="size_num">
+                                    Подбирается под ботинки
+                                </div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div th:if="${poles} != null" id="gtco-post-list">
+            <div class="entry">
+                <a href="./blog_sample.html">
+                    <div class="asd">
+                        <div class="entry-img" th:style="'background-image: url(../images/' + ${poles.getItemPicturePath()} + ')'">
+
+                        </div>
+                        <div class="entry-desc">
+                            <div th:text="${poles.getItemName()}" class="title_eq">
+                                Название
+                            </div>
+                            <div th:text="${poles.getItemDescription()}" class="descr_eq">
+                                Описание
+                            </div>
+                            <div class="size_eq">
+                                Размер:&nbsp;
+                                <div th:if="${poleLen} != null" th:text="${poleLen}" class="size_num">
+                                    Не указан
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+   
+    <div class="recomendations_choice">
+        <div class="rec_content">
+            <div class="title_recom">Дополнительные рекомендации по выбору снаряжения:</div>
+
+            <div class="descr_recom">
+                &bull;  Размер ботинка необходимо выбирать исключительно в магазине и только после измерения стопы специальным прибором.
+            </div>
+            <div class="descr_recom">
+                &bull;  Точная длина снаряда всегда разная и зависит от модели и производителя. Стоит ориентироваться на предлагаемый диапазон со сдвигом соответствующем точному росту относительно выбранного диапазона.
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="http://localhost:8100">
+                <img th:src="@{../images/iconex2.png}" alt="" class="footer_logo" height="60px">
+                <div class="footer_logo_title">HILL LIFE</div>
+            </a>
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="http://localhost:8100/blog">Лента</a>
+            <a href="http://localhost:8100/resorts">Курорты</a>
+            <a href="http://localhost:8100/cart">Инвентарь</a>
+        </div>
+
+        <div class="col2">
+            <h4>Мой профиль</h4>
+            <a href="http://localhost:8100">Войти</a>
+            <a href="http://localhost:8100">Зарегистрироваться</a>
+            <a href="http://localhost:8100">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Москва</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong> круглосуточно</p>
+        </div>
+
+    </footer>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+
+        var wo = document.getElementsByClassName('wrapper');
+
+        var answ_1 = "";
+        var answ_2 = "";
+        var answ_3 = "";
+        var answ_4 = "";
+        var answ_5 = "";
+
+        function link() {
+
+            var q = "";
+            q += "sport=";
+            q += answ_1;
+            q += "&";
+            q += "skill=";
+            q += answ_2;
+            q += "&";
+            q += "gender=";
+            q += answ_3;
+            q += "&";
+            q += "weight=";
+            q += answ_4;
+            q += "&";
+            q += "height=";
+            q += answ_5;
+
+            console.log(q);
+            return q;
+        }
+
+
+        button_sport1.onclick = function () {
+
+            button_sport1.classList.add("push");
+            button_sport2.classList.remove("push");
+
+            answ_1 = "сноуборд"
+            console.log(answ_1);
+
+            q1.style.display = 'block';
+          
+    
+
+        };
+        button_sport2.onclick = function () {
+
+            button_sport2.classList.add("push");
+            button_sport1.classList.remove("push");
+
+            answ_1 = "лыжи"
+            console.log(answ_1);
+
+            q1.style.display = 'block';
+        };
+
+        button_skill1.onclick = function () {
+            button_skill1.classList.add("push");
+            button_skill2.classList.remove("push");
+            button_skill3.classList.remove("push");
+
+            answ_2 = "начинающий"
+            console.log(answ_2);
+
+            q2.style.display = 'block';
+
+        };
+        button_skill2.onclick = function () {
+            button_skill2.classList.add("push");
+            button_skill1.classList.remove("push");
+            button_skill3.classList.remove("push");
+
+            answ_2 = "продвинутый"
+            console.log(answ_2);
+
+            q2.style.display = 'block';
+        };
+
+        button_skill3.onclick = function () {
+            button_skill3.classList.add("push");
+            button_skill1.classList.remove("push");
+            button_skill2.classList.remove("push");
+
+            answ_2 = "эксперт"
+            console.log(answ_2);
+
+            q2.style.display = 'block';
+        };
+
+
+
+        button_gender1.onclick = function () {
+            button_gender1.classList.add("push");
+            button_gender2.classList.remove("push");
+            button_gender3.classList.remove("push");
+
+            answ_3 = "мужской"
+            console.log(answ_3);
+
+            q3.style.display = 'block';
+        };
+
+        button_gender2.onclick = function () {
+            button_gender2.classList.add("push");
+            button_gender1.classList.remove("push");
+            button_gender3.classList.remove("push");
+
+            answ_3 = "женский"
+            console.log(answ_3);
+
+            q3.style.display = 'block';
+        };
+
+        button_gender3.onclick = function () {
+            button_gender3.classList.add("push");
+            button_gender2.classList.remove("push");
+            button_gender1.classList.remove("push");
+
+            answ_3 = "детский"
+            console.log(answ_3);
+
+            q3.style.display = 'block';
+        };
+        //вес
+        button_weight1.onclick = function () {
+            button_weight1.classList.add("push");
+            button_weight2.classList.remove("push");
+            button_weight3.classList.remove("push");
+            button_weight4.classList.remove("push");
+            button_weight5.classList.remove("push");
+            button_weight6.classList.remove("push");
+
+            answ_4 = "-49"
+            console.log(answ_4);
+
+            q4.style.display = 'block';
+        };
+        button_weight2.onclick = function () {
+            button_weight2.classList.add("push");
+            button_weight1.classList.remove("push");
+            button_weight3.classList.remove("push");
+            button_weight4.classList.remove("push");
+            button_weight5.classList.remove("push");
+            button_weight6.classList.remove("push");
+
+            answ_4 = "50-59"
+            console.log(answ_4);
+
+            q4.style.display = 'block';
+        };
+        button_weight3.onclick = function () {
+            button_weight3.classList.add("push");
+            button_weight1.classList.remove("push");
+            button_weight2.classList.remove("push");
+            button_weight4.classList.remove("push");
+            button_weight5.classList.remove("push");
+            button_weight6.classList.remove("push");
+
+            answ_4 = "60-69"
+            console.log(answ_4);
+
+            q4.style.display = 'block';
+        };
+        button_weight4.onclick = function () {
+            button_weight4.classList.add("push");
+            button_weight1.classList.remove("push");
+            button_weight2.classList.remove("push");
+            button_weight3.classList.remove("push");
+            button_weight5.classList.remove("push");
+            button_weight6.classList.remove("push");
+
+            answ_4 = "70-79"
+            console.log(answ_4);
+
+            q4.style.display = 'block';
+        };
+        button_weight5.onclick = function () {
+            button_weight5.classList.add("push");
+            button_weight1.classList.remove("push");
+            button_weight2.classList.remove("push");
+            button_weight3.classList.remove("push");
+            button_weight4.classList.remove("push");
+            button_weight6.classList.remove("push");
+
+            answ_4 = "80-89"
+            console.log(answ_4);
+
+            q4.style.display = 'block';
+        };
+        button_weight6.onclick = function () {
+            button_weight6.classList.add("push");
+            button_weight1.classList.remove("push");
+            button_weight2.classList.remove("push");
+            button_weight3.classList.remove("push");
+            button_weight4.classList.remove("push");
+            button_weight5.classList.remove("push");
+
+            answ_4 = "90+"
+            console.log(answ_4);
+
+            q4.style.display = 'block';
+        };
+        //вес
+        button_height1.onclick = function () {
+            button_height1.classList.add("push");
+            button_height2.classList.remove("push");
+            button_height3.classList.remove("push");
+            button_height4.classList.remove("push");
+            button_height5.classList.remove("push");
+            button_height6.classList.remove("push");
+
+            answ_5 = "-124"
+            console.log(answ_5);
+
+            q5.style.display = 'flex';
+            sel_content.classList.add("wrapper_open");
+        };
+        button_height2.onclick = function () {
+            button_height2.classList.add("push");
+            button_height1.classList.remove("push");
+            button_height3.classList.remove("push");
+            button_height4.classList.remove("push");
+            button_height5.classList.remove("push");
+            button_height6.classList.remove("push");
+
+            answ_5 = "125-139"
+            console.log(answ_5);
+
+            q5.style.display = 'flex';
+            sel_content.classList.add("wrapper_open");
+        };
+        button_height3.onclick = function () {
+            button_height3.classList.add("push");
+            button_height1.classList.remove("push");
+            button_height2.classList.remove("push");
+            button_height4.classList.remove("push");
+            button_height5.classList.remove("push");
+            button_height6.classList.remove("push");
+
+            answ_5 = "140-164"
+            console.log(answ_5);
+
+            q5.style.display = 'flex';
+            sel_content.classList.add("wrapper_open");
+        };
+        button_height4.onclick = function () {
+            button_height4.classList.add("push");
+            button_height1.classList.remove("push");
+            button_height2.classList.remove("push");
+            button_height3.classList.remove("push");
+            button_height5.classList.remove("push");
+            button_height6.classList.remove("push");
+
+            answ_5 = "155-169"
+            console.log(answ_5);
+
+            q5.style.display = 'flex';
+            sel_content.classList.add("wrapper_open");
+        };
+        button_height5.onclick = function () {
+            button_height5.classList.add("push");
+            button_height1.classList.remove("push");
+            button_height2.classList.remove("push");
+            button_height3.classList.remove("push");
+            button_height4.classList.remove("push");
+            button_height6.classList.remove("push");
+
+            answ_5 = "170-184"
+            console.log(answ_5);
+
+            q5.style.display = 'flex';
+            sel_content.classList.add("wrapper_open");
+        };
+        button_height6.onclick = function () {
+            button_height6.classList.add("push");
+            button_height1.classList.remove("push");
+            button_height2.classList.remove("push");
+            button_height3.classList.remove("push");
+            button_height4.classList.remove("push");
+            button_height5.classList.remove("push");
+
+            answ_5 = "185-"
+            console.log(answ_5);
+
+            q5.style.display = 'flex';
+            sel_content.classList.add("wrapper_open");
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Просмотр курорта</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../css/resort_sample.css" />
+    <link rel="stylesheet" href="../css/resorts.css" />
+
+    <link rel="stylesheet" href="../css/weather.css" />
+    <script src="../js/weather.js" defer></script>
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
+                    <div id="sublink1" class="dropdown-content">
+                        <a href="http://localhost:8100/cart">Горные лыжи</a>
+                        <a href="http://localhost:8100/cart">Сноуборд</a>
+                        <a href="http://localhost:8100/cart">Аксессуары</a>
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+
+    <div class="resort_sample_title_container">
+        <div class="resort_sample_title_container_item">
+            <div th:utext="${resort.getResortName()}" class="resort_sample_title_container_item_theme">Горнолыжный курорт</div>
+        </div>
+    </div>
+
+    <div class="resort_sample_content">
+        <div id="resort_sample_items">
+        
+            <div class="resort_sample_image_section">
+                <img class="resort_sample_img" th:src="@{${'../images/' + resort.getResortMainPicture()}}" alt="Изображение1">
+            </div>
+            <div th:utext="${resort.getMainDesc()}" class="resort_sample_desc_section name_items">
+                Описание
+            </div>
+           
+            <div th:utext="${resort.getMainContent()}" class="resort_sample_desc_section resort_sample_item_sec2 name_items2">
+                Содержание
+            </div>
+            <div class="resort_sample_slider">
+                <wrapper>
+                    <div id="dws-slider" class="carousel slide" data-ride="carousel">
+                        <!--Показатели-->
+                        <ol class="carousel-indicators">
+                            <li data-target="#dws-slider" data-slide-to="0" class="active"></li>
+                            <li data-target="#dws-slider" data-slide-to="1"></li>
+                            <li data-target="#dws-slider" data-slide-to="2"></li>
+                        </ol>
+
+                        <!--Обертка для слайдов-->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active"><a><img class="img_slider" th:src="@{${'../images/' + resort.getResortPicA()}}"
+                                        alt="Картинка 1"></a>
+                            </div>
+                            <div class="item"><a><img class="img_slider" th:src="@{${'../images/' + resort.getResortPicB()}}"
+                                        alt="Картинка 2"></a>
+                            </div>
+                            <div class="item"><a><img class="img_slider" th:src="@{${'../images/' + resort.getResortPicC()}}"
+                                        alt="Картинка 3"></a>
+                            </div>
+                        </div>
+
+                        <!--Элементы управления-->
+                        <a class="left carousel-control"  href="#dws-slider" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#dws-slider" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </wrapper>
+            </div>
+            <div class="resort_sample_desc_section">
+                <div class="name_items2">Рекомендуемые медиа материалы:
+                    <br>
+                    <br>
+                </div>
+
+                <div class="section_video_resort">
+                    <iframe  src="https://www.youtube.com/embed/C6xMq9aur5Y"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<footer class="section-p1 footer">
+    <div class="col">
+        <a href="http://localhost:8100">
+            <img th:src="@{../images/iconex2.png}" alt="" class="footer_logo" height="60px">
+            <div class="footer_logo_title">HILL LIFE</div>
+        </a>
+    </div>
+    <div class="col1">
+        <h4>Навигация</h4>
+        <a href="http://localhost:8100/blog">Лента</a>
+        <a href="http://localhost:8100/resorts">Курорты</a>
+        <a href="http://localhost:8100/equipment">Инвентарь</a>
+    </div>
+
+    <div class="col2">
+        <h4>Мой профиль</h4>
+        <a href="http://localhost:8100">Войти</a>
+        <a href="http://localhost:8100">Зарегистрироваться</a>
+        <a href="http://localhost:8100">Помощь</a>
+    </div>
+    <div class="col3">
+        <h4>Контакты</h4>
+        <p><strong>Адрес:</strong> г.Москва</p>
+        <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+        <p><strong>Часы работы:</strong> круглосуточно</p>
+
+    </div>
+
+</footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</body>
+
+</html>

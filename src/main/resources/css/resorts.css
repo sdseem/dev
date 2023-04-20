@@ -1,0 +1,219 @@
+ /*fonts*/
+ @font-face {
+   font-family: "MuseoSans300";
+   src: url("../fonts/Museo/museosanscyrl-300.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans500";
+   src: url("../fonts/Museo/museosanscyrl-500.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans900";
+   src: url("../fonts/Museo/museosanscyrl-900.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans700";
+   src: url("../fonts/Museo/museosanscyrl-700.ttf");
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+ }
+
+ /*title*/
+ .resort_title_container {
+   width: 80%;
+   display: flex;
+   margin: 0 auto;
+   margin-top: 2%;
+   margin-bottom: 20px;
+ }
+
+ .resort_title_container_item {
+   grid-area: cardtm;
+   font-family: "MuseoSans900";
+   font-size: 28px;
+   text-transform: uppercase;
+   margin-top: 5px;
+
+ }
+
+ .resort_title_container_item_theme {
+   position: relative;
+   color: #000000;
+   font-weight: normal;
+   padding: 8px 10px 7px 10px;
+   border-top: 4px solid;
+   border-left: 4px solid;
+   display: inline-block;
+   margin: 0;
+   line-height: 1;
+ }
+
+
+ .resorts_content {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ #resorts_item {
+   margin: 0 auto;
+   display: block;
+   padding: 0;
+   width: 80%;
+   margin-bottom: 20px;
+   list-style: none;
+   min-height: 350px;
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   float: left;
+   clear: left;
+   position: relative;
+   background: #fff;
+ }
+
+ #resorts_item a {
+   text-decoration: none;
+ }
+
+ #resorts_item a:active {
+   color: black;
+ }
+
+ #resorts_item a:link {
+   color: black;
+ }
+
+ #resorts_item a:visited {
+   color: black;
+ }
+
+
+
+ .resorts_item_desc p {
+   color: #000000;
+   font-family: "MuseoSans500";
+   font-size: 16px;
+   line-height: 1.4;
+ }
+
+ .resorts_item_desc_title {
+   background-color: rgba(255, 230, 0);
+   color: #000000;
+   align-self: flex-end;
+   justify-self: start;
+   padding: 2% 2%;
+   font-family: "MuseoSans700";
+   font-size: 22px;
+   width: 96%;
+ }
+
+ .resort_item_content {
+   display: table;
+   width: 100%;
+   overflow: hidden;
+   clear: both;
+   position: relative;
+   float: left;
+ }
+
+ .resorts_item_image {
+   display: table-cell;
+   vertical-align: top;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   min-height: 250px;
+   width: 30%;
+   height: 350px;
+ }
+
+ .resorts_item_desc {
+   background: #fff;
+   padding: 20px;
+   display: table-cell;
+   width: 70%;
+   margin-bottom: 40px;
+ }
+
+ .post_adress {
+   position: absolute;
+   bottom: 20px;
+   display: block;
+   padding: 0 20px;
+   font-family: "MuseoSans500";
+   font-size: 16px;
+   color: #6b6b6b;
+ }
+
+ .post_adress_desc {
+   margin-left: 10px;
+ }
+
+ .resort_item_content .post_adress {
+   margin-left: 30%;
+ }
+
+ /*цифры*/
+.resort_pg{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+}
+.nav_pagination{
+font-family: "MuseoSans500";
+display: flex;
+justify-content: space-around;
+}
+.page  {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.page a, .page a:visited, .page a:link,.page a:active{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.page a.active_page{
+  color: rgb(255, 230, 0);
+}
+
+
+.page li a {
+  margin: 0 3px;
+  font-size: 18px;
+ 
+
+  height: 50px;
+
+}
+.page li {
+  margin: 15px;
+
+}
+
+
+ @media(max-width: 900px) {
+   #resorts_item {
+     width: 97%;
+     margin-bottom: 20px;
+     min-height: 350px;
+   }
+
+   .resort_title_container {
+     width: 97%;
+   }
+ }

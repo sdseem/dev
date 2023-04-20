@@ -1,0 +1,389 @@
+/**/
+@font-face {
+    font-family: "Monsterrat400";
+    src: url("../fonts/monsterat/static/Montserrat-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: "Monsterrat500";
+    src: url("../fonts/monsterat/static/Montserrat-Medium.ttf");
+}
+
+
+  /* Button */
+  .button {
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+.inner-header-title{
+    font-family: "Monsterrat500";
+    font-size: 24px;
+}
+
+  .main-container {
+    padding-top: 64px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+max-height: 100%;
+    margin: 0;
+    font-family: "Monsterrat400";
+  
+    font-size: 14px;
+    line-height: 24px;
+    color: #242424;
+    background-color: #fbf7f4;
+
+  }
+
+
+  .main-inner {
+    padding-top: 40px;
+    color: #242424;
+    background-color: #fbf7f4;
+    background-image: url("./images/0378e556479bdc0f4e59411efbbe802e.jpeg");
+  }
+
+  .page-container {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+
+ 
+  .catalog-products {
+    display: flex;
+  }
+
+  .catalog-filter {
+    width: 220px;
+    margin-right: 20px;
+  }
+
+  .catalog-right-column {
+    max-width: 700px;
+  }
+
+  /* Title */
+  .catalog-filter-title {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #242424;
+    text-transform: uppercase;
+    font-family: "Monsterrat500";
+    
+  }
+
+
+
+
+
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 24px;
+    padding: 0;
+    gap: 20px;
+  }
+
+  /* Item */
+  .product-card {
+    background-color: #ffffff;
+  }
+
+  /* Link */
+  .product-card-link {
+    text-decoration: none;
+  }
+
+  /* Title */
+  .product-card-title {
+    font-weight: 700;
+    color: #242424;
+  }
+
+  /* Price */
+  .product-card-price {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    color: #814b18;
+    text-transform: uppercase;
+  }
+
+  /* Pagination container */
+
+  .pagination-container {
+    display: flex;
+    padding: 16px;
+    background-color: #ffffff;
+  }
+
+  /* Pagination */
+
+  .pagination {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  /* Item */
+
+  .pagination-item:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  /* Link */
+
+  .pagination-link {
+    background-color: #000000;
+    color: #ffffff;
+    width: 50px;
+    height: 44px;
+    display: block;
+    text-decoration: none;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    line-height: 16px;
+    font-weight: 700;
+  }
+
+  .pagination-current {
+    background-color: #ffffff;
+    color: #242424;
+  }
+
+
+
+  /* Show more */
+  .pagination-show-more {
+    margin-left: auto;
+  }
+
+
+
+
+  .catalog-filter-list {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+  .panel {
+    max-width: 150px;
+  }
+
+  .cp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+  }
+
+  .cp__color {
+    width: 20px;
+    height: 20px;
+    background-color: #CCC;
+    margin: 5px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.5s;
+    list-style-type: none;
+  }
+
+  .cp__color.active {
+    border: 2px solid blue;
+  }
+
+  .cp__color--red {
+    background-color: red;
+  }
+
+  .cp__color--green {
+    background-color: green;
+  }
+
+  .cp__color--blue {
+    background-color: blue;
+  }
+
+  .cp__color--yellow {
+    background-color: yellow;
+  }
+
+  .cp__color--purple {
+    background-color: purple;
+  }
+
+  .cp__color--tomato {
+    background-color: tomato;
+  }
+
+  .cp__color--grey {
+    background-color: grey;
+  }
+
+  .cp__color--black {
+    background-color: black;
+  }
+
+  .cp__color--orange {
+    background-color: orange;
+  }
+
+  @media (min-width: 720px) and (max-width: 1000px) {
+    .page-container {
+      width: 700px;
+      margin-left: auto;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(2, 220px);
+      list-style-type: none;
+      margin: 0;
+      margin-bottom: 24px;
+      padding: 0;
+      gap: 20px;
+    }
+    .pagination-show-more {
+      margin-left: 10px;
+    }
+    .pagination-container{
+      width: 427px;
+    }
+
+
+  }
+
+  @media (max-width: 720px) {
+    .page-container {
+      width: 410px;
+      margin-left: auto;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(1, 220px);
+      list-style-type: none;
+      margin: 0;
+      margin-bottom: 24px;
+      padding: 0;
+      gap: 20px;
+    }
+    .catalog-filter {
+    width: 220px;
+   
+  }
+
+    .pagination {
+      display: none;
+    }
+
+    .pagination-show-more {
+      margin-left: 20px;
+    }
+    .pagination-container{
+      width: 190px;
+    }
+   
+  }
+  @media (min-width: 0px) and (max-width:450px) {
+    .catalog-products{
+      display: flex;
+      flex-direction: column;
+    }
+    .page-container {
+      width: 200px;
+      margin-left: auto;
+    }
+    .catalog-filter {
+    width: 220px;
+    margin-bottom: 25px;
+   
+  }
+    
+  }
+
+
+
+
+
+/*цветовая палитра*/
+.panel {
+    max-width: 150px;
+  }
+  
+  .cp {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  
+    
+  }
+  
+  .cp__color {
+    width: 20px;
+    height: 20px;
+    background-color: #CCC;
+    margin: 5px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor:pointer;
+    transition: all 0.5s;
+    list-style-type: none;
+  }
+  
+  .cp__color.active {
+    border: 2px solid blue;
+  }
+  
+  .cp__color--red {
+    background-color: red;
+  }
+  
+  .cp__color--green {
+    background-color: green;
+  }
+  
+  .cp__color--blue {
+    background-color: blue;
+  }
+  
+  .cp__color--yellow {
+    background-color: yellow;
+  }
+  
+  .cp__color--purple {
+    background-color: purple;
+  }
+  
+  .cp__color--tomato {
+    background-color: tomato;
+  }
+  
+  .cp__color--grey {
+    background-color: grey;
+  }
+  
+  .cp__color--black {
+    background-color: black;
+  }
+  
+  .cp__color--orange {
+    background-color: orange;
+  }

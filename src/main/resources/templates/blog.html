@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Лента</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/blog.css" type="text/css">
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
+                    <div id="sublink1" class="dropdown-content">
+                        <a href="http://localhost:8100/cart">Горные лыжи</a>
+                        <a href="http://localhost:8100/cart">Сноуборд</a>
+                        <a href="http://localhost:8100/cart">Аксессуары</a>
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+
+    <div class="blog_main_grid">
+        <div class="blog_theme">
+            <div class="blog_theme_title">Лента</div>
+        </div>
+        <div class="blog_search">
+            <div class="d3">
+                <form>
+                    <input type="text" placeholder="Поиск по тегу...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="blog_tg1" id="blog_tags">
+            <a th:href="${currentPath} + '?tag=' + ${topTags.get(0).getTagName()}">
+                <div class="tags_item">
+                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                    <div th:text="${topTags.get(0).getTagName()}" class="tags_item_title">Снаряжение</div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_tg2" id="blog_tags">
+            <a th:href="${currentPath} + '?tag=' + ${topTags.get(1).getTagName()}">
+                <div class="tags_item">
+                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                    <div th:text="${topTags.get(1).getTagName()}" class="tags_item_title">Сноуборд</div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_tg3" id="blog_tags">
+            <a th:href="${currentPath} + '?tag=' + ${topTags.get(2).getTagName()}">
+                <div class="tags_item">
+                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                    <div th:text="${topTags.get(2).getTagName()}" class="tags_item_title">Россия</div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_tg4" id="blog_tags">
+            <a th:href="${currentPath} + '?tag=' + ${topTags.get(3).getTagName()}">
+                <div class="tags_item">
+                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                    <div th:text="${topTags.get(3).getTagName()}" class="tags_item_title">Горы</div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_tg5" id="blog_tags">
+            <a th:href="${currentPath} + '?tag=' + ${topTags.get(4).getTagName()}">
+                <div class="tags_item">
+                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                    <div th:text="${topTags.get(4).getTagName()}" class="tags_item_title">Обучение</div>
+                </div>
+            </a>
+        </div>
+        <div class="blog_tg6" id="blog_tags">
+            <a th:href="${currentPath} + '?tag=' + ${topTags.get(5).getTagName()}">
+                <div class="tags_item">
+                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                    <div th:text="${topTags.get(5).getTagName()}" class="tags_item_title">Горные лыжи</div>
+                </div>
+            </a>
+        </div>
+        <div th:if="${post0} != null" class="blog_c1" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post0.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post0.getPostMainPicture()} + ')'">
+                        <div th:text="${post0.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post0.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags0}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post0.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+        <div th:if="${post1} != null" class="blog_c2" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post1.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post1.getPostMainPicture()} + ')'">
+                        <div th:text="${post1.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post1.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags1}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post1.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+
+        <div th:if="${post2} != null" class="blog_c3" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post2.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post2.getPostMainPicture()} + ')'">
+                        <div th:text="${post2.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post2.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags2}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post2.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+        <div th:if="${post3} != null" class="blog_c4" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post3.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post3.getPostMainPicture()} + ')'">
+                        <div th:text="${post3.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post3.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags3}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post3.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+
+
+        <div th:if="${post4} != null" class="blog_c5" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post4.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post4.getPostMainPicture()} + ')'">
+                        <div th:text="${post4.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post4.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags4}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post4.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+
+        </div>
+
+        <div th:if="${post5} != null" class="blog_c9" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post5.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post5.getPostMainPicture()} + ')'">
+                        <div th:text="${post5.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post5.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags5}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post5.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+
+
+        <div th:if="${post6} != null" class="blog_c6" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post6.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post6.getPostMainPicture()} + ')'">
+                        <div th:text="${post6.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post6.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags6}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post6.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+
+        <div th:if="${post7} != null" class="blog_c10" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post7.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post7.getPostMainPicture()} + ')'">
+                        <div th:text="${post7.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post7.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags7}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post7.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+        <div th:if="${post8} != null" class="blog_c7" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post8.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post8.getPostMainPicture()} + ')'">
+                        <div th:text="${post8.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post8.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags8}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post7.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+        <div th:if="${post9} != null" class="blog_c8" id="gtco-post-list">
+            <div class="entry">
+                <a th:href="'http://localhost:8100/blog/publication/' + ${post9.getId()}">
+                    <div class="entry-img" th:style="'background-image: url(../images/' + ${post9.getPostMainPicture()} + ')'">
+                        <div th:text="${post9.getPostName()}" class="recom_news_title">Название</div>
+                    </div>
+                    <div class="entry-desc">
+                        <p th:text="${post9.getPostDescription()}">Описание</p>
+                        <div class="recom_news_tagss">
+                            <img src="../images/ribbon.png" class="image_tag" alt="Тэг" height="18">
+                            <span th:text="'   '"></span>
+                            <div class="recom_news_tags_discriptions">
+                                <span th:each="tag : ${tags9}" th:text="${tag.getTagName()} + ' | '"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="post-meta">Опубликовано: <span th:text="${post9.getPublicationDate().toString().substring(0, 10)}" class="date-posted">3 дня назад</span></div>
+            </div>
+        </div>
+
+        <div class="blog_pg">
+            <nav class="nav_pagination" id="id_nav_pagination">
+                <ul class="page">
+                    <li>
+                        <a th:if="${currPage} > 1" th:href="'http://localhost:8100/blog/' + ${currPage - 1}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                        <a th:if="${currPage} <= 1" th:href="'http://localhost:8100/blog/1'" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a th:if="${currPage} > 2" th:text="${currPage} - 2" th:href="'http://localhost:8100/blog/' + ${currPage - 2}">1</a></li>
+                    <li><a th:if="${currPage} > 1" th:text="${currPage} - 1" th:href="'http://localhost:8100/blog/' + ${currPage - 1}">2</a></li>
+                    <li><a th:if="${currentTag} == null" th:text="${currPage}" th:href="'http://localhost:8100/blog/' + ${currPage}" class="active_page">3</a></li>
+                    <li><a th:if="${currentTag} != null" th:text="${currPage}" th:href="'http://localhost:8100/blog/' + ${currPage} + '?tag=' + ${currentTag}" class="active_page">3</a></li>
+                    <li><a th:if="${currentTag} == null" th:text="${currPage} + 1" th:href="'http://localhost:8100/blog/' + ${currPage + 1}">4</a></li>
+                    <li><a th:if="${currentTag} != null" th:text="${currPage} + 1" th:href="'http://localhost:8100/blog/' + ${currPage + 1} + '?tag=' + ${currentTag}">4</a></li>
+                    <li><a th:if="${currentTag} == null" th:text="${currPage} + 2" th:href="'http://localhost:8100/blog/' + ${currPage + 2}">5</a></li>
+                    <li><a th:if="${currentTag} != null" th:text="${currPage} + 2" th:href="'http://localhost:8100/blog/' + ${currPage + 2} + '?tag=' + ${currentTag}">5</a></li>
+                    <li>
+                        <a th:href="'http://localhost:8100/blog/' + ${currPage + 2}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+<footer class="section-p1 footer">
+    <div class="col">
+        <a href="http://localhost:8100">
+            <img th:src="@{../images/iconex2.png}" alt="" class="footer_logo" height="60px">
+            <div class="footer_logo_title">HILL LIFE</div>
+        </a>
+    </div>
+    <div class="col1">
+        <h4>Навигация</h4>
+        <a href="http://localhost:8100/blog">Лента</a>
+        <a href="http://localhost:8100/resorts">Курорты</a>
+        <a href="http://localhost:8100/cart">Инвентарь</a>
+    </div>
+
+    <div class="col2">
+        <h4>Мой профиль</h4>
+        <a href="http://localhost:8100">Войти</a>
+        <a href="http://localhost:8100">Зарегистрироваться</a>
+        <a href="http://localhost:8100">Помощь</a>
+    </div>
+    <div class="col3">
+        <h4>Контакты</h4>
+        <p><strong>Адрес:</strong> г.Москва</p>
+        <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+        <p><strong>Часы работы:</strong> круглосуточно</p>
+    </div>
+
+</footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

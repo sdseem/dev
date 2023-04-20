@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "MuseoSans300";
+    src: url("../fonts/Museo/museosanscyrl-300.ttf");
+  }
+
+@font-face {
+    font-family: "MuseoSans500";
+    src: url("../fonts/Museo/museosanscyrl-500.ttf");
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "MuseoSans300";
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #dbdbdb;
+}
+
+.box {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: #242424;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+
+
+.form {
+    position: absolute;
+    background: #242424;
+    inset: 2px;
+    border-radius: 8px;
+    z-index: 10;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form h2 {
+    color: #fff23c;
+    font-family: "MuseoSans500";
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.input_box {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+
+}
+
+.input_box input { 
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #242424;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    z-index: 10;
+}
+
+.input_box span { 
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: #8f8f8f;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input_box input:valid ~ span, 
+.input_box input:focus ~ span {
+    color: #fff23c;
+    transform: translateX(-10px) translateY(-34px);
+    font-size: 0.75em;
+}
+
+
+.input_box i { 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff23c;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.input_box input:valid ~ i, 
+.input_box input:focus ~ i {
+    height: 44px;
+}
+
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+.links a:hover,
+.links a:nth-child(2) {
+    color: #fff23c;
+}
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    background: #fff23c;
+    padding: 11px 25px;
+    margin-top: 30px;
+    border-radius: 20px;
+    font-family: "MuseoSans500";
+    cursor: pointer;
+}
+

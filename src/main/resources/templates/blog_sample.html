@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Лента</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/blog_sample.css" type="text/css">
+    <link rel="stylesheet" href="../css/resort_sample.css" type="text/css">
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../js/comments.js" defer></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/equipment">Инвентарь</a>
+                    <div id="sublink1" class="dropdown-content">
+                        <a href="http://localhost:8100/equipment">Горные лыжи</a>
+                        <a href="http://localhost:8100/equipment">Сноуборд</a>
+                        <a href="http://localhost:8100/equipment">Аксессуары</a>
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="blog_sample_title_container">
+        <div class="blog_sample_title_container_item">
+            <div class="blog_sample_title_container_item_theme" th:text="${post.getPostName()}"></div>
+        </div>
+    </div>
+
+    <div class="blog_sample_content">
+        <div id="blog_sample_items">
+
+            <div class="blog_sample_body">
+                <div class="bs1">
+                    <div class="tags_section">
+                        <div th:each="tag : ${tags}" class="" id="blog_sample_tags">
+                            <a href="">
+                                <div class="tags_item">
+                                    <img src="../images/ribbon.png" class="image_tag" height="18">
+                                    <div th:text="${tag.getTagName()}" class="tags_item_title">Сезон 2022-2023</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="post_meta"><span th:text="${user.getFullName()}"></span> опубликовал(-а):<span class="date_post" th:text="${post.getPublicationDate().toString().substring(0, 10)}">1 января 2022</span></div>
+                    <div class="blog_sample_main_descr">
+                        <span th:text="${post.getPostDescription()}">
+
+                        </span>
+                    </div>
+                </div>
+                <div class="bs2">
+                    <img class="bs2_image" th:src="@{${'../images/' + post.getPostMainPicture()}}">
+                </div>
+                <div class="bs3">
+
+                    <div class="b3_subsection">
+                        <span th:utext="${post.getPostContentA()}" class="blog_title_paragh_decsr"></span>
+                    </div>
+
+                    <div class="bs3_image_container">
+                        <img class="bs3_image" th:src="@{${'../images/' + post.getPostPicA()}}">
+                    </div>
+                    <div class="b3_subsection">
+                        <span th:utext="${post.getPostContentB()}" class="blog_title_paragh_decsr"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="blog_sample_comments" id="blog_com">
+        <div class="comments_items">
+            <div class="comments_title">
+                <img src="../images/chat-vec.png" class="comments_im">
+                <p>Комментарии</p>
+                <img src="../images/chat-vec.png" class="comments_im">
+            </div>
+            <div class="comments_add">
+                <input id="com_in" type="text" class="comments_input" placeholder="Комментировать">
+                <button class="send_comment" v-on:click="addComment">
+                    <img src="../images/push_comment.png" style="height: 40px;">
+                </button>
+            </div>
+            <div class="comments" id="bl_cmts">
+                <div class="blog_comment">
+                    <div class="user">Пользователь</div>
+                    <div class="comment_text"></div>
+                    <div class="comment_del">
+                        <button class="comment_del_inner">X</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<footer class="section-p1 footer">
+    <div class="col">
+        <a href="http://localhost:8100">
+            <img th:src="@{../images/iconex2.png}" alt="" class="footer_logo" height="60px">
+            <div class="footer_logo_title">HILL LIFE</div>
+        </a>
+    </div>
+    <div class="col1">
+        <h4>Навигация</h4>
+        <a href="http://localhost:8100/blog">Лента</a>
+        <a href="http://localhost:8100/resorts">Курорты</a>
+        <a href="http://localhost:8100/equipment">Инвентарь</a>
+    </div>
+
+    <div class="col2">
+        <h4>Мой профиль</h4>
+        <a href="http://localhost:8100">Войти</a>
+        <a href="http://localhost:8100">Зарегистрироваться</a>
+        <a href="http://localhost:8100">Помощь</a>
+    </div>
+    <div class="col3">
+        <h4>Контакты</h4>
+        <p><strong>Адрес:</strong> г.Москва</p>
+        <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+        <p><strong>Часы работы:</strong> круглосуточно</p>
+
+    </div>
+
+</footer>
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

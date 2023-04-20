@@ -1,0 +1,356 @@
+ /*fonts*/
+ @font-face {
+   font-family: "MuseoSans300";
+   src: url("../fonts/Museo/museosanscyrl-300.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans500";
+   src: url("../fonts/Museo/museosanscyrl-500.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans900";
+   src: url("../fonts/Museo/museosanscyrl-900.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans700";
+   src: url("../fonts/Museo/museosanscyrl-700.ttf");
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+ }
+
+ /*title*/
+ .selection_title_container {
+   width: 80%;
+   display: flex;
+   margin: 0 auto;
+   margin-top: 2%;
+   margin-bottom: 20px;
+ }
+
+ .selection_title_container_item {
+   grid-area: cardtm;
+   font-family: "MuseoSans900";
+   font-size: 28px;
+   text-transform: uppercase;
+   margin-top: 5px;
+
+ }
+
+ .selection_title_container_item_theme {
+   position: relative;
+   color: #000000;
+   font-weight: normal;
+   padding: 8px 10px 7px 10px;
+   border-top: 4px solid;
+   border-left: 4px solid;
+   display: inline-block;
+   margin: 0;
+   line-height: 1;
+ }
+
+
+ .selection_content {
+   width: 80%;
+   display: flex;
+   margin: 0 auto;
+   padding-top: 0.7%;
+
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: center;
+ }
+
+
+
+
+ .double-border-button {
+   text-decoration: none;
+   display: inline-block;
+   margin: 0px 5px;
+   padding: 10px 20px;
+   position: relative;
+   border: 2px solid #FFE600;
+   background-color: rgb(255, 255, 255);
+   border-radius: 20px;
+   min-width: 90px;
+   color: #000000;
+   font-family: "MuseoSans500";
+   font-size: 16px;
+   line-height: 1.4;
+   transition: .4s;
+ }
+
+ .double-border-button:hover {
+   background: linear-gradient(90deg, #FFE600 10%, rgb(255, 255, 255));
+ }
+
+ .recomendations_choice { width: 80%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 0px;
+  background: #FFFFFF;
+  margin-bottom: 2%;
+  padding-bottom: 1%;
+  margin-top: 1%;
+ 
+}
+
+ .wrapper {
+   width: 80%;
+   height: auto;
+   margin: 0 auto;
+   background: #FFFFFF;
+   padding-bottom: 2%;
+ }
+
+ .wrapper_open {
+   padding-bottom: 0%;
+ }
+
+ .title_question {
+   text-align: center;
+
+   color: #000000;
+   padding: 2% 2%;
+   font-family: "MuseoSans700";
+   font-size: 22px;
+   width: 96%;
+ }
+
+ .title_recom {
+  text-align: left;
+
+  color: #000000;
+  padding: 2% 2%;
+  font-family: "MuseoSans700";
+  font-size: 22px;
+  width: 96%;
+}
+
+ .question {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }
+
+ @keyframes ani {
+   0% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ #q1 {
+   display: none;
+   opacity: 0;
+   animation: ani 1s forwards;
+
+ }
+
+ #q2 {
+   display: none;
+   opacity: 0;
+   animation: ani 1s forwards;
+ }
+
+ #q3 {
+   display: none;
+   opacity: 0;
+   animation: ani 1s forwards;
+ }
+
+ #q4 {
+   display: none;
+   opacity: 0;
+   animation: ani 1s forwards;
+ }
+
+ #q5 {
+   display: none;
+   opacity: 0;
+   animation: ani 1s forwards;
+ }
+
+ .push {
+   background-color: #FFE600;
+ }
+
+ .pushblock {
+
+   display: block;
+ }
+
+ .button_selection {
+   text-decoration: none;
+   display: inline-block;
+   margin: 0px 5px;
+   padding: 10px 20px;
+   position: relative;
+   border: 2px solid #000000;
+   background-color: rgb(255, 255, 255);
+   color: #000000;
+   font-family: "MuseoSans500";
+   font-size: 16px;
+   line-height: 1.4;
+   transition: .4s;
+
+ }
+
+ .but_search {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   padding: 2% 2%;
+ }
+
+
+ /**/
+
+ /**/
+ #gtco-post-list {
+   display: flex;
+   padding: 0;
+   width: 47.1%;
+
+   margin: 1% 1% 1% 1%;
+
+   list-style: none;
+   min-height: 200px;
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   float: left;
+   clear: left;
+   position: relative;
+   background: #fff;
+   border: 4px solid #414040;
+
+   border-radius: 15px;
+ }
+
+ .entry a {
+   text-decoration: none;
+
+ }
+
+ #gtco-post-list a:active {
+   color: black;
+
+ }
+
+ #gtco-post-list a:link {
+   color: black;
+
+ }
+
+ #gtco-post-list a:visited {
+   color: black;
+
+ }
+
+ .asd {
+   display: flex;
+   flex-direction: row;
+ }
+
+
+ .entry .entry-img {
+     margin: 2% 2%;
+     background-position: center;
+     background-size: 150px;
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     min-height: 200px;
+     width: 26%;
+ }
+
+ .entry .entry-desc {
+   padding: 15px;
+   padding-top: 10px;
+   width: 70%;
+   min-height: 150px;
+   color: #000000;
+   font-family: "MuseoSans500";
+   font-size: 16px;
+   line-height: 1.4;
+   padding: 2% 2%;
+
+
+
+ }
+
+ .descr_eq {
+   padding: 2%;
+ }
+
+ .title_eq {
+
+   text-align: left;
+   color: #000000;
+
+   font-family: "MuseoSans700";
+   font-size: 22px;
+   padding: 2%;
+   background-color: #FFE600;
+
+
+
+ }
+ .descr_recom{
+  color: #000000;
+  font-family: "MuseoSans500";
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 1% 2%;
+  width: 96%;
+ }
+
+ .size_eq {
+   display: flex;
+   flex-direction: row;
+   padding: 2%;
+   text-decoration: underline;
+ }
+
+
+ @media(max-width: 1100px) {
+   #gtco-post-list {
+     width: 97.5%;
+   }
+  .recomendations_choice{
+    width: 97%;
+  }
+ }
+
+ @media(max-width: 900px) {
+
+
+   .selection_content {
+     width: 97%;
+   }
+
+   #resorts_item {
+     width: 97%;
+     margin-bottom: 20px;
+     min-height: 350px;
+   }
+
+   .resort_title_container {
+     width: 97%;
+   }
+
+   #sel_content {
+     width: 97%;
+   }
+
+
+ }

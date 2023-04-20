@@ -1,0 +1,241 @@
+ /*fonts*/
+ @font-face {
+     font-family: "MuseoSans300";
+     src: url("../fonts/Museo/museosanscyrl-300.ttf");
+ }
+
+ @font-face {
+     font-family: "MuseoSans500";
+     src: url("../fonts/Museo/museosanscyrl-500.ttf");
+ }
+
+ @font-face {
+     font-family: "MuseoSans900";
+     src: url("../fonts/Museo/museosanscyrl-900.ttf");
+ }
+
+ @font-face {
+     font-family: "MuseoSans700";
+     src: url("../fonts/Museo/museosanscyrl-700.ttf");
+ }
+  /*title*/
+  .resort_sample_title_container {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    padding: 1.5%;
+    background-color: rgba(255, 230, 0);
+    color: black;
+
+  }
+ 
+  .resort_sample_title_container_item {
+
+    font-family: "MuseoSans900";
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-top: 5px;
+ 
+  }
+ 
+  .resort_sample_title_container_item_theme {
+    position: relative;
+    color: black;
+    font-weight: normal;
+    padding: 8px 10px 7px 10px;
+    border-top: 4px solid;
+    border-left: 4px solid;
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+  }
+/**/
+ body {
+     margin: 0;
+     padding: 0;
+ }
+
+ .resort_sample_content {
+     width: 100%;
+     align-items: center;
+ }
+
+ #resort_sample_items {
+     background: #fff;
+     width: 80%;
+     margin: 0 auto;
+     height: auto;
+     padding-bottom: 1%;
+     margin-bottom: 20px;
+
+
+ }
+
+ .resort_sample_slider {
+     margin: 0 auto;
+     width: 80%;
+
+ }
+
+ .resort_sample_title {
+     background-color: rgba(255, 230, 0);
+     color: #f5f5f5;
+     align-self: flex-end;
+     justify-self: start;
+     padding: 1.5%;
+     font-family: "MuseoSans700";
+     font-size: 22px;
+
+ }
+
+ .name_items {
+     font-family: "MuseoSans500";
+     font-size: 18px;
+     line-height: 1.4;
+     font-weight: bold;
+     margin-top: 9px;
+     margin-bottom: 9px;
+
+ }
+
+ .name_items span {
+     font-weight: normal;
+ }
+
+ .resort_sample_image_section {
+     margin: 0 auto;
+     width: 100%;
+     height: 50vh;
+ }
+
+ .resort_sample_img {
+     object-fit: cover;
+     height: 100%;
+     width: 100%;
+ }
+
+ .resort_sample_desc_section {
+     margin-left: 1.5%;
+     margin-right: 1.5%;
+     margin-top: 2.5%;
+     margin-bottom: 2.5%;
+     text-align: justify;
+ }
+
+ .resort_sample_item_sec1 {
+     margin-left: 10px;
+     text-align: justify;
+ }
+
+ .resort_sample_item_sec2 {
+     font-family: "MuseoSans500";
+     font-size: 18px;
+     line-height: 1.4;
+     margin-top: 19px;
+     margin-bottom: 19px;
+     text-align: justify;
+ }
+
+ .name_items2 {
+     font-family: "MuseoSans500";
+     font-size: 18px;
+     line-height: 1.4;
+     font-weight: bold;
+     margin-top: 19px;
+     margin-bottom: 19px;
+
+ }
+
+ .name_items2 span {
+     font-weight: normal;
+ }
+
+ .resort_sample_price {
+     font-weight: normal;
+ }
+ .section_video_resort{
+width: fit-content;
+margin: 0 auto;
+ }
+ iframe{
+    height:315px;
+    width: 560px;
+ }
+
+ @media(max-width: 900px) {
+  
+     #resort_sample_items {
+         width: 90%;
+     }
+
+     .resort_sample_image_section {
+         height: 35vh;
+     }
+     .resort_sample_title_container{
+        width: 90%;
+     }
+ }
+
+
+ @media(max-width: 600px) {
+
+    iframe{
+        height:202.5px;
+        width: 360px;
+     }
+     #resort_sample_items {
+         width: 100%;
+     }
+
+     .resort_sample_image_section {
+         height: 30vh;
+     }
+     .resort_sample_title_container{
+        width: 100%;
+     }
+ }
+ @media(max-width: 400px) {
+
+    iframe{
+        height:168.75px;
+        width: 300px;
+     }
+ }
+ @media(max-width: 310px) {
+
+    iframe{
+        height:112.5px;
+        width: 200px;
+     }
+ }
+
+
+
+.resort_graphs {
+    height: auto;
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.graphs_title {
+    margin-top: 5%;
+    font-family: "MuseoSans700";
+    font-size: 25px;
+}
+
+.section_graph_resort {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 5%;
+}
+

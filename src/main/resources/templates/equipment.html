@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/page_equipment.css" />
+    <title>Инвентарь</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <script src="../js/equipment.js" defer></script>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/equipment">Инвентарь</a>
+                    <div id="sublink1" class="dropdown-content">
+                        <a href="http://localhost:8100/equipment">Горные лыжи</a>
+                        <a href="http://localhost:8100/equipment">Сноуборд</a>
+                        <a href="http://localhost:8100/equipment">Аксессуары</a>
+                    </div>
+                </div>
+            </li>
+            <li id="lc"><a href="http://localhost:8100"><button class="nav_link5">Профиль</button></a></li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="main-inner main-container" id="app">
+        <div class="page-container">
+
+            <header class="inner-header">
+                <h1 class="inner-header-title">Каталог</h1>
+
+            </header>
+
+            <section class="catalog-products">
+               
+                <form class="catalog-filter">
+                    <fieldset class="catalog-filter-group">
+                        <legend class="catalog-filter-title">Категория</legend>
+                        <ul class="catalog-filter-list">
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="bed-head-for-men" checked>
+
+                                    Горные лыжи
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="homme-deep-cleansing-cool">
+
+                                    Горнолыжные ботинки
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="so-intense">
+
+                                    Горнолыжные крепления
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="sprekenhus">
+
+                                    Горнолыжные маски
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="firm-storе">
+
+                                    Горнолыжные палки
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="catalog-filter-group">
+                        <legend class="catalog-filter-title">Пол</legend>
+                        <ul class="catalog-filter-list">
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="bed-head-for-men" checked>
+
+                                    Для детей и подростков
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="homme-deep-cleansing-cool">
+
+                                    Женский
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="so-intense">
+
+                                    Мужской
+                                </label>
+                            </li>
+                            <li class="catalog-filter-item">
+                                <label class="control">
+                                    <input class="control-input" type="checkbox" name="sprekenhus">
+
+                                    Унисекс
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="catalog-filter-group">
+                        <legend class="catalog-filter-title">Цвет</legend>
+                        <div class="panel">
+                            <ul class="cp">
+                                <li class="cp__color cp__color--red"></li>
+                                <li class="cp__color cp__color--green"></li>
+                                <li class="cp__color cp__color--blue"></li>
+                                <li class="cp__color cp__color--yellow"></li>
+                                <li class="cp__color cp__color--purple"></li>
+                                <li class="cp__color cp__color--tomato"></li>
+                                <li class="cp__color cp__color--grey"></li>
+                                <li class="cp__color cp__color--black"></li>
+                                <li class="cp__color cp__color--orange"></li>
+                            </ul>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="catalog-filter-group">
+                        <legend class="catalog-filter-title">Сумма</legend>
+                        <p id="id_sum">{{ sum }}</p>
+                        <button class="button" v-on:click="cleear"></button>
+                    </fieldset>
+                    <button type="submit">Показать</button>
+                </form>
+
+                <div class="catalog-right-column">
+
+
+                    <!-- Список товаров -->
+                    <ul class="product-list">
+                        <li class="product-card">
+                            <a class="product-card-image-link" href="#">
+                                <img class="product-card-image" src="../images/eq1.png" width="220" height="200" alt="">
+                            </a>
+                            <a class="product-card-title-link" href="">
+                                <h3 class="product-card-title">Горнолыжный шлем Alpina Gems Black Rose Matt</h3>
+                            </a>
+                            <span class="product-card-price" id="1">3990</span>
+                            <button class="button product-card-button" v-on:click="sum1">Купить</a>
+
+                        </li>
+                        <li class="product-card">
+                            <a class="product-card-image-link" href="#">
+                                <img class="product-card-image" src="../images/eq8.png" width="220" height="200" alt="">
+                            </a>
+                            <a class="product-card-title-link" href="">
+                                <h3 class="product-card-title">Горнолыжные ботинки Head Nexo Lyt 130 RS Anthr./Yellow
+                                </h3>
+                            </a>
+                            <span class="product-card-price" id="2">44900</span>
+                            <button class="button product-card-button" v-on:click="sum2">Купить</a>
+                        </li>
+                        <li class="product-card">
+                            <a class="product-card-image-link" href="#">
+                                <img class="product-card-image" src="../images/eq9.jpg"
+                                    style="object-fit:cover;  image-rendering: crisp-edges; " width="220" height="200"
+                                    alt="">
+                            </a>
+                            <a class="product-card-title-link" href="">
+                                <h3 class="product-card-title">Горнолыжные ботинки Head Edge Lyt 100 Black/Red</h3>
+                            </a>
+                            <span class="product-card-price" id="3">22872</span>
+                            <button class="button product-card-button" v-on:click="sum3">Купить</a>
+                        </li>
+                        <li class="product-card">
+                            <a class="product-card-image-link" href="#">
+                                <img class="product-card-image" src="../images/eq4.jpg" width="220" height="200" alt="">
+                            </a>
+                            <a class="product-card-title-link" href="">
+                                <h3 class="product-card-title">Горнолыжные ботинки мужские Rossignol Allspeed 100 Dark
+                                    Blue</h3>
+                            </a>
+                            <span class="product-card-price" id="4">20293</span>
+                            <button class="button product-card-button" v-on:click="sum4">Купить</a>
+                        </li>
+                        <li class="product-card">
+                            <a class="product-card-image-link" href="#">
+                                <img class="product-card-image" src="../images/eq7.jpg" width="220" height="200" alt="">
+                            </a>
+                            <a class="product-card-title-link" href="">
+                                <h3 class="product-card-title">Защитные шорты UFO Plast Atom Soft Padded Black</h3>
+                            </a>
+                            <span class="product-card-price" id="5">17502</span>
+                            <button class="button product-card-button" v-on:click="sum5">Купить</a>
+                        </li>
+                        <li class="product-card">
+                            <a class="product-card-image-link" href="#">
+                                <img class="product-card-image" src="../images/eq6.png" width="220" height="200" alt="">
+                            </a>
+                            <a class="product-card-title-link" href="">
+                                <h3 class="product-card-title">Горнолыжные крепления Tyrolia Attack 14 Gw W/O Brake [A]
+                                    Solid Black</h3>
+                            </a>
+                            <span class="product-card-price" id="6">13852</span>
+                            <button class="button product-card-button" v-on:click="sum6">Купить</a>
+                        </li>
+                    </ul>
+
+                    <!-- Пагинация -->
+                    <div class="pagination-container">
+                        <ul class="pagination">
+
+                            <li class="pagination-item">
+                                <a class="pagination-link pagination-current">1</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a class="pagination-link" href="#">2</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a class="pagination-link" href="#">3</a>
+                            </li>
+
+
+                        </ul>
+                        <button class="button pagination-show-more" type="button">Показать ещё</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+<footer class="section-p1 footer">
+    <div class="col">
+        <a href="http://localhost:8100">
+            <img th:src="@{../images/iconex2.png}" alt="" class="footer_logo" height="60px">
+            <div class="footer_logo_title">HILL LIFE</div>
+        </a>
+    </div>
+    <div class="col1">
+        <h4>Навигация</h4>
+        <a href="http://localhost:8100/blog">Лента</a>
+        <a href="http://localhost:8100/resorts">Курорты</a>
+        <a href="http://localhost:8100/equipment">Инвентарь</a>
+    </div>
+
+    <div class="col2">
+        <h4>Мой профиль</h4>
+        <a href="http://localhost:8100">Войти</a>
+        <a href="http://localhost:8100">Зарегистрироваться</a>
+        <a href="http://localhost:8100">Помощь</a>
+    </div>
+    <div class="col3">
+        <h4>Контакты</h4>
+        <p><strong>Адрес:</strong> г.Москва</p>
+        <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+        <p><strong>Часы работы:</strong> круглосуточно</p>
+
+    </div>
+
+</footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

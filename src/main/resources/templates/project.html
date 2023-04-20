@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>О нас</title>
+
+	<link rel="stylesheet" href="../css/main.css">
+
+	<script src="libs/gsap/gsap.min.js" defer></script>
+	<script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+	<script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+
+	<script src="../js/app.js" defer></script>
+
+
+
+
+	<!-- header -->
+	<link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script src="../js/script.js"></script>
+
+</head>
+<body>
+
+	<div class="wrapper">
+		<div class="content">
+
+			<section id="header">
+				<a class="logo" href="http://localhost:8100">
+					<img th:src="@{../images/iconex2.png}" alt="" height="45px">
+				</a>
+
+				<div style="display: flex;">
+					<ul id="header_navigation">
+						<li>
+							<a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+						</li>
+						<li>
+							<a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+						</li>
+						<li>
+							<a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+						</li>
+						<li>
+							<div class="dropdown">
+								<a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+								<div id="sublink" class="dropdown-content">
+									<a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+									<a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="dropdown">
+								<a class="link nav_link4" href="http://localhost:8100/equipment">Инвентарь</a>
+								<div id="sublink1" class="dropdown-content">
+									<a href="http://localhost:8100/equipment">Горные лыжи</a>
+									<a href="http://localhost:8100/equipment">Сноуборд</a>
+									<a href="http://localhost:8100/equipment">Аксессуары</a>
+								</div>
+							</div>
+						</li>
+						<li id="lc">
+							<a href="http://localhost:8100">
+								<button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+								<button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+							</a>
+						</li>
+						<a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+					</ul>
+				</div>
+				<div id="mobile">
+					<a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+					<i id="bar" class="fas fa-outdent"></i>
+
+				</div>
+			</section>
+
+
+			<header class="main-header">
+				<div class="layers">
+					<div class="layer__header">
+						<div class="layers__caption">Как стиль жизни</div>
+						<div class="layers__title">Freeride</div>
+					</div>
+					<div class="layer layers__base" style="background-image: url(img/layer-base.png);"></div>
+					<div class="layer layers__middle" style="background-image: url(img/layer-middle.png);"></div>
+					<div class="layer layers__front" style="background-image: url(img/layer-front.png);"></div>
+				</div>
+			</header>
+		
+			<article class="main-article" style="background-image: url(img/dungeon.jpg);">
+				<div class="main-article__content">
+					<h2 class="main-article__header">Мотивация</h2>
+					<p class="main-article__paragraph">Желание создать ресурс, помогающий 
+						разобраться новичкам в горных лыжах или сноуборде, а также имеющий современный 
+						и яркий дизайн
+					</p>
+					<br>
+					<p class="main-article__paragraph">
+						Создатели:
+					</p>
+					<p class="main-article__paragraph">
+						Самсонов Дмитрий
+					</p>
+				</div>
+				<div class="copy">© WebDesign Master</div>
+			</article>
+
+
+		</div>
+	</div>
+
+</body>
+</html>
