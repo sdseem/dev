@@ -1,22 +1,20 @@
 package com.web.dev.controller;
 
 import com.web.dev.dto.db.TagWithCountDto;
-import com.web.dev.entity.Post;
-import com.web.dev.entity.Tag;
-import com.web.dev.entity.User;
-import com.web.dev.entity.ViewHistory;
+import com.web.dev.entity.*;
 import com.web.dev.repository.UserRepository;
 import com.web.dev.repository.ViewHistoryRepository;
 import com.web.dev.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.*;
 
@@ -66,7 +64,11 @@ public class BlogController {
             viewHistory.setContentId(postId);
             viewHistory.setViewDate(new Date(System.currentTimeMillis()));
             viewHistoryRepository.save(viewHistory);
-
+            List<PostComment> comments = blogService.getCommentsByPost(postId);
+            model.addAttribute("comments", comments);
+            PostComment newComment = new PostComment();
+            newComment.setPost(postId);
+            model.addAttribute("newComment", newComment);
             return "blog_sample";
         } catch (Exception e) {
             return "error";
@@ -139,5 +141,13 @@ public class BlogController {
         } catch (Exception e) {
             return "error";
         }
+    }
+
+    @PostMapping("/comments/add")
+    public void addComment(@ModelAttribute("newComment") PostComment postComment,
+                             @AuthenticationPrincipal OidcUser user,
+                             HttpServletResponse response) throws IOException {
+        blogService.saveComment(user.getSubject(), postComment);
+        response.sendRedirect("http://localhost:8100/blog/publication/" + postComment.getPost());
     }
 }

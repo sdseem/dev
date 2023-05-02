@@ -24,6 +24,7 @@ public class SecurityConfiguration {
         http
                 .authorizeRequests(a -> a
                         .antMatchers("/").permitAll()
+                        .antMatchers("/api/v1/**").permitAll()
                         .antMatchers("/images/**").permitAll()
                         .antMatchers("/css/**").permitAll()
                         .antMatchers("/fonts/**").permitAll()

@@ -394,7 +394,7 @@
  }
 
  .send_comment {
-  background-color: #ffd342;
+  background-color: #f5c452;
   height: 50px;
   width: 50px;
   border-radius: 15px;
@@ -402,7 +402,7 @@
   display: none;
  }
 
- .comments_input:focus, .comments_input:not(:placeholder-shown) ~ button{
+ .comments_input:focus, .comments_input:not(:placeholder-shown) ~ input{
   display: block;
   margin-left: 10px;
  }

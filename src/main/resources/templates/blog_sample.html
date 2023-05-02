@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -131,19 +131,15 @@
                 <p>Комментарии</p>
                 <img src="../images/chat-vec.png" class="comments_im">
             </div>
-            <div class="comments_add">
-                <input id="com_in" type="text" class="comments_input" placeholder="Комментировать">
-                <button class="send_comment" v-on:click="addComment">
-                    <img src="../images/push_comment.png" style="height: 40px;">
-                </button>
-            </div>
+            <form action="#" th:action="@{/comments/add}" th:object="${newComment}" method="post" class="comments_add">
+                <input th:field="*{text}" type="text" class="comments_input" placeholder="Комментировать"/>
+                <input type="hidden" th:field="*{post}" th:value="${post.getId()}"/>
+                <input type="image" src="../images/push_comment.png" class="send_comment"/>
+            </form>
             <div class="comments" id="bl_cmts">
-                <div class="blog_comment">
-                    <div class="user">Пользователь</div>
-                    <div class="comment_text"></div>
-                    <div class="comment_del">
-                        <button class="comment_del_inner">X</button>
-                    </div>
+                <div th:each = "comment : ${comments}" class="blog_comment">
+                    <div th:text="${comment.getUser().getFullName()}" class="user">Пользователь</div>
+                    <div th:text="${comment.getText()}" class="comment_text"></div>
                 </div>
             </div>
         </div>

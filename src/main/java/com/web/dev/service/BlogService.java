@@ -1,21 +1,19 @@
 package com.web.dev.service;
 
 import com.web.dev.dto.db.TagWithCountDto;
-import com.web.dev.entity.Post;
-import com.web.dev.entity.Tag;
-import com.web.dev.entity.TagRelation;
-import com.web.dev.repository.PostRepository;
-import com.web.dev.repository.TagRelationRepository;
-import com.web.dev.repository.TagRepository;
+import com.web.dev.entity.*;
+import com.web.dev.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class BlogService {
@@ -23,12 +21,16 @@ public class BlogService {
     private final PostRepository postRepository;
     private final TagRepository tagRepository;
     private final TagRelationRepository tagRelationRepository;
+    private final CommentsRepository commentsRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public BlogService(PostRepository postRepository, TagRepository tagRepository, TagRelationRepository tagRelationRepository) {
+    public BlogService(PostRepository postRepository, TagRepository tagRepository, TagRelationRepository tagRelationRepository, CommentsRepository commentsRepository, UserRepository userRepository) {
         this.postRepository = postRepository;
         this.tagRepository = tagRepository;
         this.tagRelationRepository = tagRelationRepository;
+        this.commentsRepository = commentsRepository;
+        this.userRepository = userRepository;
     }
 
     public Post getPostById(Integer id) {
@@ -71,5 +73,18 @@ public class BlogService {
 
     public List<TagWithCountDto> findTopTags(){
         return tagRelationRepository.findTagsWithCount();
+    }
+
+    public List<PostComment> getCommentsByPost(Integer postId) {
+        return commentsRepository.findAllByPost(postId);
+    }
+
+    public void saveComment(String fusionUserId, PostComment comment) {
+        Optional<User> optionalUser = userRepository.findByFusionId(fusionUserId);
+        if (optionalUser.isEmpty()) throw new NoSuchElementException();
+        if (comment.getText().length() < 5) return;
+        comment.setUser(optionalUser.get());
+        comment.setDateCreated(new Date(System.currentTimeMillis()));
+        commentsRepository.save(comment);
     }
 }
