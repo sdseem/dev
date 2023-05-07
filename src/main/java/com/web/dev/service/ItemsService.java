@@ -1,22 +1,31 @@
 package com.web.dev.service;
 
 import com.web.dev.entity.Item;
+import com.web.dev.entity.SelectionHistory;
+import com.web.dev.entity.User;
 import com.web.dev.repository.ItemRepository;
+import com.web.dev.repository.SelectionHistoryRepository;
+import com.web.dev.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class ItemsService {
 
     private final ItemRepository itemRepository;
+    private final SelectionHistoryRepository selectionHistoryRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public ItemsService(ItemRepository itemRepository) {
+    public ItemsService(ItemRepository itemRepository, SelectionHistoryRepository selectionHistoryRepository, UserRepository userRepository) {
         this.itemRepository = itemRepository;
+        this.selectionHistoryRepository = selectionHistoryRepository;
+        this.userRepository = userRepository;
     }
 
     public Item findMainItem(String sport, String skill, String gender) {
@@ -121,5 +130,13 @@ public class ItemsService {
         }
         double res = 0.7*len;
         return String.valueOf((int) res);
+    }
+
+    public void saveSelectionHistory(String fusionUserId, SelectionHistory historyItem) {
+        Optional<User> optionalUser = userRepository.findByFusionId(fusionUserId);
+        if (optionalUser.isPresent()) {
+            historyItem.setUserId(optionalUser.get().getId());
+            selectionHistoryRepository.save(historyItem);
+        }
     }
 }
