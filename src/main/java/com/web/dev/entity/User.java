@@ -25,4 +25,13 @@ public class User {
     @Column(name = "full_name")
     @JsonProperty("full_name")
     private String fullName;
+
+    @Column(name = "mphone")
+    private String phone;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "uage")
+    private String age;
 }

@@ -25,7 +25,7 @@
  }
 
  /*title*/
- .selection_title_container {
+ .profile_selection_title_container {
    width: 80%;
    display: flex;
    margin: 0 auto;
@@ -33,7 +33,7 @@
    margin-bottom: 20px;
  }
 
- .selection_title_container_item {
+ .profile_selection_title_container_item {
    grid-area: cardtm;
    font-family: "MuseoSans900";
    font-size: 28px;
@@ -42,7 +42,7 @@
 
  }
 
- .selection_title_container_item_theme {
+ .profile_selection_title_container_item_theme {
    position: relative;
    color: #000000;
    font-weight: normal;
@@ -55,28 +55,70 @@
  }
 
 
- .selection_content {
+ .history_selection_content {
    width: 80%;
    display: flex;
    margin: 0 auto;
    padding-top: 0.7%;
+   background-color: #FFFFFF;
 
    flex-direction: row;
    flex-wrap: wrap;
    align-items: center;
  }
 
+ 
+ .history_title_query {
+  width: 78%;
+
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  text-align: left;
+  color: #000000;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  font-family: "MuseoSans700";
+  font-size: 22px;
+
+}
+
+ 
+.history_title_query_result {
+  width: 78%;
+
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  text-align: left;
+  color: #000000;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  font-family: "MuseoSans700";
+  font-size: 22px;
+  text-decoration: underline;
+
+}
+
+.h_query{
+  color: #000000;
+    font-family: "MuseoSans500";
+    font-size: 16px;
+    line-height: 1.4;
 
 
+}
 
- .double-border-button {
+  
+ .profile_double-border-button {
+   outline:none;
    text-decoration: none;
    display: inline-block;
    margin: 0px 5px;
    padding: 10px 20px;
    position: relative;
-   border: 2px solid #000000;
-   background-color: rgb(255, 255, 255);
+   border: 2px solid #FFE600;
+   background-color: #FFE600;
    border-radius: 20px;
    min-width: 90px;
    color: #000000;
@@ -86,52 +128,67 @@
    transition: .4s;
  }
 
- .double-border-button:hover {
+ .profile_double-border-button:hover {
    background: linear-gradient(90deg, #FFE600 10%, rgb(255, 255, 255));
  }
 
+ .user_name{
+  display: flex;
+  flex-direction: row;
+  margin-top: 1%;
+  margin-bottom: 1%;
 
- .double-border-inp {
-  text-decoration: none;
-  display: inline-block;
-  margin: 0px 5px;
-  padding: 10px 20px;
-  position: relative;
-  border: 2px solid #000000;
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
-  min-width: 90px;
+ }
+
+ .title_name{
+  color: #000000;
+    font-family: "MuseoSans500";
+    font-size: 16px;
+    line-height: 1.4;
+ }
+
+ 
+ .user_title{
+  width: 110px;
   color: #000000;
   font-family: "MuseoSans500";
   font-size: 16px;
   line-height: 1.4;
-  transition: .4s;
-  outline:none;
-}
+  font-weight: bold;
+ }
 
-.double-border-inp:hover {
-  background: linear-gradient(90deg, #FFE600 10%, rgb(255, 255, 255));
-}
-
-
-
- .recomendations_choice { width: 80%;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 0px;
-  background: #FFFFFF;
-  margin-bottom: 2%;
-  padding-bottom: 1%;
+ .user_description{
+  margin-left: 1%;
   margin-top: 1%;
- 
-}
+ }
+ .user_nav_menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 1%;
+  padding-top: 1%;
 
- .wrapper {
+ }
+
+ .user_button_update{
+
+  margin: 0;
+  margin-left: 50px;
+
+ }
+
+ .user_button_exit{
+  margin: 0;
+
+ }
+
+ .profile_wrapper {
    width: 80%;
    height: auto;
    margin: 0 auto;
    background: #FFFFFF;
-   padding-bottom: 2%;
+   padding-bottom: 1%;
  }
 
  .wrapper_open {
@@ -148,15 +205,6 @@
    width: 96%;
  }
 
- .title_recom {
-  text-align: left;
-
-  color: #000000;
-  padding: 2% 2%;
-  font-family: "MuseoSans700";
-  font-size: 22px;
-  width: 96%;
-}
 
  .question {
    display: flex;
@@ -205,11 +253,6 @@
    animation: ani 1s forwards;
  }
 
- #q6 {
-  display: none;
-  opacity: 0;
-  animation: ani 1s forwards;
-}
  .push {
    background-color: #FFE600;
  }
@@ -246,15 +289,16 @@
  /**/
 
  /**/
- #gtco-post-list {
+ #history_gtco-post-list {
    display: flex;
+   flex-direction: column;
    padding: 0;
-   width: 47.1%;
+   width: 30.5%;
 
    margin: 1% 1% 1% 1%;
 
    list-style: none;
-   min-height: 200px;
+   min-height: 100px;
    background-position: center center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -267,48 +311,51 @@
    border-radius: 15px;
  }
 
- .entry a {
+ .history_entry a {
    text-decoration: none;
 
  }
 
- #gtco-post-list a:active {
+ #history_gtco-post-list a:active {
    color: black;
 
  }
 
- #gtco-post-list a:link {
+ #history_gtco-post-list a:link {
    color: black;
 
  }
 
- #gtco-post-list a:visited {
+ #history_gtco-post-list a:visited {
    color: black;
 
  }
+ .history_cont{
+  margin-bottom: 1.5%;
+ }
 
- .asd {
+ .history_asd {
    display: flex;
    flex-direction: row;
  }
 
 
- .entry .entry-img {
+ .history_entry .history_entry-img {
    margin: 2% 2%;
    background-position: center;
-   background-size: 150px;
+   background-size: 80px;
    background-repeat: no-repeat;
    background-position: 50% 50%;
-   min-height: 200px;
-   width: 26%;
+   min-height: 70px;
+   width: 20%;
 
  }
 
- .entry .entry-desc {
+ .history_entry .history_entry-desc {
    padding: 15px;
    padding-top: 10px;
-   width: 70%;
-   min-height: 150px;
+   width: 76%;
+   min-height: 70px;
    color: #000000;
    font-family: "MuseoSans500";
    font-size: 16px;
@@ -319,14 +366,16 @@
 
  }
 
- .descr_eq {
-   padding: 2%;
- }
 
- .title_eq {
+
+ .history_title_eq {
 
    text-align: left;
    color: #000000;
+   width: 90%;
+   margin: 0 auto;
+   margin-top: 3%;
+   margin-bottom: 3%;
 
    font-family: "MuseoSans700";
    font-size: 22px;
@@ -336,26 +385,20 @@
 
 
  }
- .descr_recom{
-  color: #000000;
-  font-family: "MuseoSans500";
-  font-size: 16px;
-  line-height: 1.4;
-  padding: 1% 2%;
-  width: 96%;
- }
 
- .size_eq {
+
+ .history_size_eq {
    display: flex;
    flex-direction: row;
    padding: 2%;
    text-decoration: underline;
+   margin: 0 auto;
  }
 
 
- @media(max-width: 1100px) {
+ @media(max-width: 1200px) {
    #gtco-post-list {
-     width: 97.5%;
+     width: 47%;
    }
   .recomendations_choice{
     width: 97%;
@@ -379,7 +422,7 @@
      width: 97%;
    }
 
-   #sel_content {
+   #profile_sel_content {
      width: 97%;
    }
 

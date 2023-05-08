@@ -61,14 +61,12 @@
 							<div class="dropdown">
 								<a class="link nav_link4" href="http://localhost:8100/equipment">Инвентарь</a>
 								<div id="sublink1" class="dropdown-content">
-									<a href="http://localhost:8100/equipment">Горные лыжи</a>
-									<a href="http://localhost:8100/equipment">Сноуборд</a>
-									<a href="http://localhost:8100/equipment">Аксессуары</a>
+
 								</div>
 							</div>
 						</li>
 						<li id="lc">
-							<a href="http://localhost:8100">
+							<a href="http://localhost:8100/profile">
 								<button th:if="${fullname} == null" class="nav_link5">Профиль</button>
 								<button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
 							</a>
@@ -103,13 +101,6 @@
 					<p class="main-article__paragraph">Желание создать ресурс, помогающий 
 						разобраться новичкам в горных лыжах или сноуборде, а также имеющий современный 
 						и яркий дизайн
-					</p>
-					<br>
-					<p class="main-article__paragraph">
-						Создатели:
-					</p>
-					<p class="main-article__paragraph">
-						Самсонов Дмитрий
 					</p>
 				</div>
 				<div class="copy">© WebDesign Master</div>

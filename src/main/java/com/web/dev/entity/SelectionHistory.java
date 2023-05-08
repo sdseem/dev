@@ -56,4 +56,16 @@ public class SelectionHistory {
 
     @Column(name = "recommendations")
     private String recommendations;
+
+    @Column(name = "foot_size")
+    private String footSize;
+
+    @Column(name = "boot_size")
+    private String bootSize;
+
+    @Column(name = "len_rec")
+    private String len;
+
+    @Column(name = "pole_len")
+    private String poleLen;
 }

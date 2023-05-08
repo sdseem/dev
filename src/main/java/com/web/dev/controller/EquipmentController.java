@@ -3,6 +3,7 @@ package com.web.dev.controller;
 import com.web.dev.entity.Item;
 import com.web.dev.entity.SelectionHistory;
 import com.web.dev.service.ItemsService;
+import com.web.dev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -17,10 +18,12 @@ import java.sql.Timestamp;
 public class EquipmentController {
 
     private final ItemsService itemsService;
+    private final UserService userService;
 
     @Autowired
-    public EquipmentController(ItemsService itemsService) {
+    public EquipmentController(ItemsService itemsService, UserService userService) {
         this.itemsService = itemsService;
+        this.userService = userService;
     }
 
     @RequestMapping("/cart")
@@ -30,10 +33,13 @@ public class EquipmentController {
                                 @RequestParam(required = false, name = "gender") String gender,
                                 @RequestParam(required = false, name = "weight") String weight,
                                 @RequestParam(required = false, name = "height") String height,
+                                @RequestParam(required = false, name = "foot") String foot,
+                                @RequestParam(required = false, name = "footsize") String footSize,
                                 @AuthenticationPrincipal OidcUser user)
     {
         try {
             if (user != null) {
+
                 model.addAttribute("fullname", user.getFullName());
             } else {
                 model.addAttribute("fullname", null);
@@ -64,6 +70,7 @@ public class EquipmentController {
             model.addAttribute("poles", poles);
             model.addAttribute("len", len);
             model.addAttribute("poleLen", poleLen);
+            model.addAttribute("foot", foot);
 
             if (sport != null && skill != null && gender != null && weight != null && height != null && user != null) {
                 SelectionHistory historyItem = new SelectionHistory();
@@ -78,6 +85,10 @@ public class EquipmentController {
                 historyItem.setHeight(height);
                 historyItem.setRecommendations(null);
                 historyItem.setDateSelected(new Timestamp(System.currentTimeMillis()));
+                historyItem.setBootSize(foot);
+                historyItem.setFootSize(footSize);
+                historyItem.setLen(len);
+                historyItem.setPoleLen(poleLen);
                 itemsService.saveSelectionHistory(user.getSubject(), historyItem);
             }
             return "selection_equipment";

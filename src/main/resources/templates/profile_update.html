@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Курорты</title>
+    <title>Редактирование профиля</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/resorts.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
-    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/profile_update.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -45,7 +45,6 @@
                 <div class="dropdown">
                     <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
                     <div id="sublink1" class="dropdown-content">
-
                     </div>
                 </div>
             </li>
@@ -66,47 +65,70 @@
     </div>
 </section>
 
-    <div class="resort_title_container">
-        <div class="resort_title_container_item">
-            <div class="resort_title_container_item_theme">Горнолыжные курорты</div>
+    <div class="profile_selection_title_container">
+        <div class="profile_selection_title_container_item">
+            <div class="profile_selection_title_container_item_theme">Редактирование профиля</div>
         </div>
     </div>
 
+    <div id="profile_up_sel_content" class="profile_up_wrapper">
 
-    <div th:each="resort : ${resorts}" class="resorts_content">
-        <div id="resorts_item">
-            <div class="resort_item_content">
-                <a th:href="@{${'http://localhost:8100/resort/' + resort.getId()}}">
-                    <div class="resorts_item_image" th:style="'background-image: url(../images/' + ${resort.getResortMainPicture()} + '); width: 400px'">
-                    </div>
-                    <div class="resorts_item_desc">
-                        <div th:text="${resort.getResortName()}" class="resorts_item_desc_title">Горнолыжный курорт</div>
-                        <p th:utext="${resort.getMainDesc()}">Краткое описание</p>
-                    </div>
-                </a>
-                <div th:text="'Расположение: ' + ${resort.getResortPlace()}" class="post_adress">Страна</div>
+
+        <div class="user_nav_menu">
+            <div class="user_icon">
+                <img width="70px" src="/images/user_icon.png">
             </div>
         </div>
+
+        <div class="user_update_description">
+            <form method="post" action="" th:action="@{/profile/update}" th:object="${newUserInfo}">
+                <div class="user_name">
+                    <div class="user_title">
+                        Имя:
+                    </div>
+                    <input th:field="*{fullName}" name="user_name" type="text" id="input_name" class="profile_double-border-input" value="">
+                </div>
+                <div class="user_name">
+                    <div class="user_title">
+                        Пол:
+                    </div>
+                    <input th:field="*{gender}" name="user_gender" type="text" id="input_gender" class="profile_double-border-input" value="">
+                </div>
+    
+                <div class="user_name">
+                    <div class="user_title">
+                        Возраст:
+                    </div>
+                    <input th:field="*{age}" name="user_age" type="text" id="input_age" class="profile_double-border-input" value="">
+                </div>
+                <div class="user_name">
+                    <div class="user_title">
+                        Email:
+                    </div>
+                    <input th:field="*{email}" name="user_email" type="text" id="input_email" class="profile_double-border-input" value="">
+                </div>
+                <div class="user_name">
+                    <div class="user_title">
+                        Телефон:
+                    </div>
+                    <input th:field="*{phone}" name="user_tel" type="text" id="input_tel" class="profile_double-border-input" value="">
+                </div>
+
+                        <button type="submit" class="profile_double-border-buttonn">
+                            Сохранить
+                        </button>
+               
+            </form>
+
+
+    
+
+        </div>
     </div>
-    <div class="resort_pg">
-        <nav class="nav_pagination" id="id_nav_pagination">
-            <ul class="page">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a class="active_page" href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+
+
+
+
 <footer class="section-p1 footer">
     <div class="col">
         <a href="http://localhost:8100">
@@ -118,7 +140,7 @@
         <h4>Навигация</h4>
         <a href="http://localhost:8100/blog">Лента</a>
         <a href="http://localhost:8100/resorts">Курорты</a>
-        <a href="http://localhost:8100/equipment">Инвентарь</a>
+        <a href="http://localhost:8100/cart">Инвентарь</a>
     </div>
 
     <div class="col2">
@@ -132,11 +154,13 @@
         <p><strong>Адрес:</strong> г.Москва</p>
         <p><strong>Телефон:</strong> +7(999)999 99 99</p>
         <p><strong>Часы работы:</strong> круглосуточно</p>
-
     </div>
 
 </footer>
-    <script src="../js/script.js"></script>
+    <script src="/js/script.js"></script>
+    <script type="text/javascript">
+
+    </script>
 </body>
 
 </html>

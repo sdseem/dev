@@ -5,8 +5,8 @@ import com.web.dev.entity.*;
 import com.web.dev.repository.UserRepository;
 import com.web.dev.repository.ViewHistoryRepository;
 import com.web.dev.service.BlogService;
+import com.web.dev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -23,32 +23,31 @@ public class BlogController {
     private final BlogService blogService;
     private final UserRepository userRepository;
     private final ViewHistoryRepository viewHistoryRepository;
+    private final UserService userService;
 
     @Autowired
-    public BlogController(BlogService blogService, UserRepository userRepository, ViewHistoryRepository viewHistoryRepository) {
+    public BlogController(BlogService blogService, UserRepository userRepository, ViewHistoryRepository viewHistoryRepository, UserService userService) {
         this.blogService = blogService;
         this.userRepository = userRepository;
         this.viewHistoryRepository = viewHistoryRepository;
+        this.userService = userService;
     }
 
     @RequestMapping("/blog/publication/{postId}")
     public String blogPage(Model model, @PathVariable("postId") Integer postId, @AuthenticationPrincipal OidcUser userFusion) {
         try {
+            User user;
             if (userFusion != null) {
-                model.addAttribute("fullname", userFusion.getFullName());
+                user = userService.getOrRegister(userFusion.getSubject(), userFusion.getFullName(), userFusion.getEmail());
+                model.addAttribute("fullname", user.getFullName());
+                ViewHistory viewHistory = new ViewHistory();
+                viewHistory.setUserId(user.getId());
+                viewHistory.setContentType("post");
+                viewHistory.setContentId(postId);
+                viewHistory.setViewDate(new Date(System.currentTimeMillis()));
+                viewHistoryRepository.save(viewHistory);
             } else {
                 model.addAttribute("fullname", null);
-            }
-            String userEmail = (String) userFusion.getClaims().get("email");
-            Optional<User> userOptional = userRepository.findByEmail(userEmail);
-            User user = new User();
-            if (userOptional.isEmpty()) {
-                user.setEmail(userEmail);
-                user.setFusionId((String) userFusion.getClaims().get("sub"));
-                user.setFullName((String) userFusion.getClaims().get("name"));
-                userRepository.save(user);
-            } else {
-                user = userOptional.get();
             }
             Post post = blogService.getPostById(postId);
             blogService.incrementCount(postId);
@@ -58,12 +57,6 @@ public class BlogController {
             model.addAttribute("post", post);
             model.addAttribute("tags", tags);
 
-            ViewHistory viewHistory = new ViewHistory();
-            viewHistory.setUserId(user.getId());
-            viewHistory.setContentType("post");
-            viewHistory.setContentId(postId);
-            viewHistory.setViewDate(new Date(System.currentTimeMillis()));
-            viewHistoryRepository.save(viewHistory);
             List<PostComment> comments = blogService.getCommentsByPost(postId);
             model.addAttribute("comments", comments);
             PostComment newComment = new PostComment();
@@ -80,7 +73,8 @@ public class BlogController {
         try {
             model.addAttribute("currentPath", "http://localhost:8100/blog");
             if (user != null) {
-                model.addAttribute("fullname", user.getFullName());
+                User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
+                model.addAttribute("fullname", userData.getFullName());
             } else {
                 model.addAttribute("fullname", null);
             }
@@ -116,7 +110,8 @@ public class BlogController {
         try {
             model.addAttribute("currentPath", "http://localhost:8100/blog/" + page);
             if (user != null) {
-                model.addAttribute("fullname", user.getFullName());
+                User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
+                model.addAttribute("fullname", userData.getFullName());
             } else {
                 model.addAttribute("fullname", null);
             }

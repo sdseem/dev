@@ -45,14 +45,12 @@
                 <div class="dropdown">
                     <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
                     <div id="sublink1" class="dropdown-content">
-                        <a href="http://localhost:8100/cart">Горные лыжи</a>
-                        <a href="http://localhost:8100/cart">Сноуборд</a>
-                        <a href="http://localhost:8100/cart">Аксессуары</a>
+
                     </div>
                 </div>
             </li>
             <li id="lc">
-                <a href="http://localhost:8100">
+                <a href="http://localhost:8100/profile">
                     <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
                     <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
                 </a>
@@ -68,63 +66,65 @@
     </div>
 </section>
 
-    <div class="selection_title_container">
-        <div class="selection_title_container_item">
-            <div class="selection_title_container_item_theme">Подбор горнолыжного снаряжения</div>
+<div class="selection_title_container">
+    <div class="selection_title_container_item">
+        <div class="selection_title_container_item_theme">Подбор горнолыжного снаряжения</div>
+    </div>
+</div>
+
+<div id="sel_content" class="wrapper">
+    <div id="q0">
+        <div class="title_question">Выберите вид горного спорта</div>
+        <div class="question">
+            <input type="button" class="double-border-button" id="button_sport1" value="Сноуборд">
+            <input type="button" class="double-border-button" id="button_sport2" value="Лыжи">
+        </div>
+    </div>
+    <div id="q1">
+        <div class="title_question">Оцените уровень своего катания</div>
+        <div class="question">
+            <input type="button" class="double-border-button" id="button_skill1" value="Начинающий">
+            <input type="button" class="double-border-button" id="button_skill2" value="Продвинутый">
+            <input type="button" class="double-border-button" id="button_skill3" value="Эксперт">
+        </div>
+    </div>
+    <div id="q2">
+        <div class="title_question">Выберите пол</div>
+        <div class="question">
+            <input type="button" class="double-border-button" id="button_gender1" value="Мужской">
+            <input type="button" class="double-border-button" id="button_gender2" value="Женский">
+            <input type="button" class="double-border-button" id="button_gender3" value="Детский">
+        </div>
+    </div>
+    <div id="q3">
+        <div class="title_question">Введите вес</div>
+        <div class="question">
+            <input type="text" class="double-border-inp" id="button_w" pattern="[0-9]{1,3}">
+        </div>
+    </div>
+    <div id="q6">
+        <div class="title_question">Введите размер ноги (размер RU)</div>
+        <div class="question">
+            <input type="text" class="double-border-inp" id="button_foot" pattern="[0-9]{1,2}">
         </div>
     </div>
 
-    <div id="sel_content" class="wrapper">
-        <div id="q0">
-            <div class="title_question">Выберите вид горного спорта</div>
-            <div class="question">
-                <input type="button" class="double-border-button" id="button_sport1" value="Сноуборд">
-                <input type="button" class="double-border-button" id="button_sport2" value="Лыжи">
-            </div>
-        </div>
-        <div id="q1">
-            <div class="title_question">Оцените уровень своего катания</div>
-            <div class="question">
-                <input type="button" class="double-border-button" id="button_skill1" value="Начинающий">
-                <input type="button" class="double-border-button" id="button_skill2" value="Продвинутый">
-                <input type="button" class="double-border-button" id="button_skill3" value="Эксперт">
-            </div>
-        </div>
-        <div id="q2">
-            <div class="title_question">Выберите пол</div>
-            <div class="question">
-                <input type="button" class="double-border-button" id="button_gender1" value="Мужской">
-                <input type="button" class="double-border-button" id="button_gender2" value="Женский">
-                <input type="button" class="double-border-button" id="button_gender3" value="Детский">
-            </div>
-        </div>
-        <div id="q3">
-            <div class="title_question">Выберите вес из предложенных диапазонов</div>
-            <div class="question">
-                <input type="button" class="double-border-button" id="button_weight1" value="Меньше 49">
-                <input type="button" class="double-border-button" id="button_weight2" value="50-59">
-                <input type="button" class="double-border-button" id="button_weight3" value="60-69">
-                <input type="button" class="double-border-button" id="button_weight4" value="70-79">
-                <input type="button" class="double-border-button" id="button_weight5" value="80-89">
-                <input type="button" class="double-border-button" id="button_weight6" value="Больше 90">
-            </div>
-        </div>
-        <div id="q4">
-            <div class="title_question">Выберите рост из предложенных диапазонов</div>
-            <div class="question">
-                <input type="button" class="double-border-button" id="button_height1" value="Меньше 124">
-                <input type="button" class="double-border-button" id="button_height2" value="125-139">
-                <input type="button" class="double-border-button" id="button_height3" value="140-154">
-                <input type="button" class="double-border-button" id="button_height4" value="155-169">
-                <input type="button" class="double-border-button" id="button_height5" value="170-184">
-                <input type="button" class="double-border-button" id="button_height6" value="Больше 185">
-            </div>
-        </div>
-        <div id="q5" class="but_search">
-            <div><a onclick="location.href='/cart?'+link()" class="button_selection">Подобрать снаряжение</a>
-            </div>
+    <div id="q4">
+        <div class="title_question">Введите рост</div>
+        <div class="question">
+            <input type="text" class="double-border-inp" id="button_h" pattern="[0-9]{1,3}">
 
         </div>
+    </div>
+    <div id="q5" class="but_search">
+        <div><a onclick="location.href='/cart?'+link()" class="button_selection">Подобрать снаряжение</a>
+        </div>
+        <!--location.href='/cart?'+ -->
+    </div>
+
+
+
+</div>
 
 
 
@@ -180,7 +180,7 @@
                             </div>
                             <div class="size_eq">
                                 Размер:&nbsp;
-                                <div class="size_num">
+                                <div th:text="${foot}" class="size_num">
                                     Зависит от длины и ширины стопы. Следует уточнить в магазине.
                                 </div>
                             </div>
@@ -289,295 +289,449 @@
 
     </footer>
     <script src="./js/script.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        var wo = document.getElementsByClassName('wrapper');
+    var wo = document.getElementsByClassName('wrapper');
 
-        var answ_1 = "";
-        var answ_2 = "";
-        var answ_3 = "";
-        var answ_4 = "";
-        var answ_5 = "";
+    var answ_1 = "";
+    var answ_2 = "";
+    var answ_3 = "";
+    var answ_4 = "";
+    var answ_5 = "";
+    var answ_6 = "";
+    var answ_7 = "";
 
-        function link() {
 
-            var q = "";
-            q += "sport=";
-            q += answ_1;
-            q += "&";
-            q += "skill=";
-            q += answ_2;
-            q += "&";
-            q += "gender=";
-            q += answ_3;
-            q += "&";
-            q += "weight=";
-            q += answ_4;
-            q += "&";
-            q += "height=";
-            q += answ_5;
+    function link() {
+        var weightNum = document.getElementById('button_w').value;
+        if (weightNum < 50) {
+            answ_4 = "-49";
+        } else if ((weightNum >= 50) && (weightNum <= 59)) {
+            answ_4 = "50-59";
+        } else if ((weightNum >= 60) && (weightNum <= 69)) {
+            answ_4 = "60-69";
+        } else if ((weightNum >= 70) && (weightNum <= 79)) {
+            answ_4 = "70-79";
+        } else if ((weightNum >= 80) && (weightNum <= 89)) {
+            answ_4 = "80-89";
+        } else if (weightNum > 89) {
+            answ_4 = "90+";
+        }
+        console.log(weightNum);
 
-            console.log(q);
-            return q;
+        var heightNum = document.getElementById('button_h').value;
+        if (heightNum < 125) {
+            answ_5 = "-124";
+        } else if ((heightNum >= 125) && (heightNum <= 139)) {
+            answ_5 = "125-139";
+        } else if ((heightNum >= 140) && (heightNum <= 154)) {
+            answ_5 = "140-154";
+        } else if ((heightNum >= 155) && (heightNum <= 169)) {
+            answ_5 = "155-169";
+        } else if ((heightNum >= 170) && (heightNum <= 184)) {
+            answ_5 = "170-184";
+        } else if (heightNum > 184) {
+            answ_5 = "185-";
+        }
+        console.log(heightNum);
+
+        var footNum = document.getElementById('button_foot').value;
+
+        answ_7 = document.getElementById('button_foot').value;
+
+
+
+        if (answ_1 == "сноуборд") {
+            if (answ_3 == "мужской") {
+                if(footNum == 37.5){
+                    answ_6 = "25.0 см";
+                }else if(footNum == 38){
+                    answ_6 = "25,0 - 25,5 см";
+                }else if(footNum == 38.5){
+                    answ_6 = "25,0 - 25,5 см";
+                }else if(footNum == 39){
+                    answ_6 = "25,5 - 26,0 см";
+                }else if(footNum == 39.5){
+                    answ_6 = "26,0 см";
+                }else if(footNum == 40){
+                    answ_6 = "26,0 - 26,5 см";
+                }else if(footNum == 40.5){
+                    answ_6 = "26,5 см";
+                }else if(footNum == 41){
+                    answ_6 = "27,0 см";
+                }else if(footNum == 41.5){
+                    answ_6 = "27,5 см";
+                }else if(footNum == 42){
+                    answ_6 = "28,0 см";
+                }else if(footNum == 42.5){
+                    answ_6 = "28,0 - 28,5 см";
+                }else if(footNum == 43){
+                    answ_6 = "28,5 см";
+                }else if(footNum == 43.5){
+                    answ_6 = "28,5 - 29,0 см";
+                }else if(footNum == 44){
+                    answ_6 = "29,0 см";
+                }else if(footNum == 44.5){
+                    answ_6 = "29,5 см";
+                }else if(footNum == 45){
+                    answ_6 = "30,0 см";
+                }else if(footNum == 46){
+                    answ_6 = "30,5 см";
+                }else if(footNum == 47){
+                    answ_6 = "31,0 см";
+                }else if(footNum == 48){
+                    answ_6 = "32,0 см";
+                }
+
+            } else if (answ_3 == "женский") {
+                if(footNum == 33.5){
+                    answ_6 = "22,0 см";
+                }else if(footNum == 34){
+                    answ_6 = "22,5 см";
+                }else if(footNum == 34.5){
+                    answ_6 = "22,5 - 23,0 см";
+                }else if(footNum == 35){
+                    answ_6 = "23,0 см";
+                }else if(footNum == 35.5){
+                    answ_6 = "23,5 см";
+                }else if(footNum == 36){
+                    answ_6 = "24,0 см";
+                }else if(footNum == 36.5){
+                    answ_6 = "24,0 - 24,5 см";
+                }else if(footNum == 37){
+                    answ_6 = "24,5 см";
+                }else if(footNum == 37.5){
+                    answ_6 = "25,0 см";
+                }else if(footNum == 38){
+                    answ_6 = "25,0 - 25,5 см";
+                }else if(footNum == 38.5){
+                    answ_6 = "25,5 см";
+                }else if(footNum == 39){
+                    answ_6 = "25,5 - 26,0 см";
+                }else if(footNum == 39.5){
+                    answ_6 = "26,0 см";
+                }else if(footNum == 40){
+                    answ_6 = "26,5 см";
+                }else if(footNum == 40.5){
+                    answ_6 = "26,5 - 27,0 см";
+                }else if(footNum == 41){
+                    answ_6 = "27,0 см";
+                }else if(footNum == 41.5){
+                    answ_6 = "27,5 см";
+                }
+            } else if (answ_3 == "детский") {
+                if(footNum == 13){
+                    answ_6 = "8,0 - 8,5 см";
+                }else if(footNum == 14){
+                    answ_6 = "9,0 см";
+                }else if(footNum == 15){
+                    answ_6 = "10,0 см";
+                }else if(footNum == 16){
+                    answ_6 = "10,0 - 10,5 см";
+                }else if(footNum == 17){
+                    answ_6 = "11,0 см";
+                }else if(footNum == 18){
+                    answ_6 = "11,5 - 12,0 см";
+                }else if(footNum == 19){
+                    answ_6 = "12,5 см";
+                }else if(footNum == 20){
+                    answ_6 = "13,0 см";
+                }else if(footNum == 21){
+                    answ_6 = "13,5 - 14,0 см";
+                }else if(footNum == 22){
+                    answ_6 = "14,5 см";
+                }else if(footNum == 23){
+                    answ_6 = "15,0 см";
+                }else if(footNum == 24){
+                    answ_6 = "15,5 - 16,0 см";
+                }else if(footNum == 25){
+                    answ_6 = "16,5 - 17,0 см";
+                }else if(footNum == 26){
+                    answ_6 = "17,0 см";
+                }else if(footNum == 27){
+                    answ_6 = "17,5 - 18,0 см";
+                }else if(footNum == 28){
+                    answ_6 = "18,0 - 18,5 см";
+                }else if(footNum == 29  ){
+                    answ_6 = "19,0 см";
+                }
+
+            }
+
+
+
+        } else if (answ_1 == "лыжи") {
+            if (answ_3 == "мужской") {
+                if(footNum == 37.5){
+                    answ_6 = "25.0 см";
+                }else if(footNum == 38){
+                    answ_6 = "25,0 - 25,5 см";
+                }else if(footNum == 38.5){
+                    answ_6 = "25,0 - 25,5 см";
+                }else if(footNum == 39){
+                    answ_6 = "25,5 - 26,0 см";
+                }else if(footNum == 39.5){
+                    answ_6 = "26,0 см";
+                }else if(footNum == 40){
+                    answ_6 = "26,0 - 26,5 см";
+                }else if(footNum == 40.5){
+                    answ_6 = "26,5 см";
+                }else if(footNum == 41){
+                    answ_6 = "27,0 см";
+                }else if(footNum == 41.5){
+                    answ_6 = "27,5 см";
+                }else if(footNum == 42){
+                    answ_6 = "28,0 см";
+                }else if(footNum == 42.5){
+                    answ_6 = "28,0 - 28,5 см";
+                }else if(footNum == 43){
+                    answ_6 = "28,5 см";
+                }else if(footNum == 43.5){
+                    answ_6 = "28,5 - 29,0 см";
+                }else if(footNum == 44){
+                    answ_6 = "29,0 см";
+                }else if(footNum == 44.5){
+                    answ_6 = "29,5 см";
+                }else if(footNum == 45){
+                    answ_6 = "30,0 см";
+                }else if(footNum == 46){
+                    answ_6 = "30,5 см";
+                }else if(footNum == 47){
+                    answ_6 = "31,0 см";
+                }else if(footNum == 48){
+                    answ_6 = "32,0 см";
+                }
+
+            } else if (answ_3 == "женский") {
+                if(footNum == 33.5){
+                    answ_6 = "22,0 см";
+                }else if(footNum == 34){
+                    answ_6 = "22,5 см";
+                }else if(footNum == 34.5){
+                    answ_6 = "22,5 - 23,0 см";
+                }else if(footNum == 35){
+                    answ_6 = "23,0 см";
+                }else if(footNum == 35.5){
+                    answ_6 = "23,5 см";
+                }else if(footNum == 36){
+                    answ_6 = "24,0 см";
+                }else if(footNum == 36.5){
+                    answ_6 = "24,0 - 24,5 см";
+                }else if(footNum == 37){
+                    answ_6 = "24,5 см";
+                }else if(footNum == 37.5){
+                    answ_6 = "25,0 см";
+                }else if(footNum == 38){
+                    answ_6 = "25,0 - 25,5 см";
+                }else if(footNum == 38.5){
+                    answ_6 = "25,5 см";
+                }else if(footNum == 39){
+                    answ_6 = "25,5 - 26,0 см";
+                }else if(footNum == 39.5){
+                    answ_6 = "26,0 см";
+                }else if(footNum == 40){
+                    answ_6 = "26,5 см";
+                }else if(footNum == 40.5){
+                    answ_6 = "26,5 - 27,0 см";
+                }else if(footNum == 41){
+                    answ_6 = "27,0 см";
+                }else if(footNum == 41.5){
+                    answ_6 = "27,5 см";
+                }
+
+            } else if (answ_3 == "детский") {
+                if(footNum == 13){
+                    answ_6 = "8,0 - 8,5 см";
+                }else if(footNum == 14){
+                    answ_6 = "9,0 см";
+                }else if(footNum == 15){
+                    answ_6 = "10,0 см";
+                }else if(footNum == 16){
+                    answ_6 = "10,0 - 10,5 см";
+                }else if(footNum == 17){
+                    answ_6 = "11,0 см";
+                }else if(footNum == 18){
+                    answ_6 = "11,5 - 12,0 см";
+                }else if(footNum == 19){
+                    answ_6 = "12,5 см";
+                }else if(footNum == 20){
+                    answ_6 = "13,0 см";
+                }else if(footNum == 21){
+                    answ_6 = "13,5 - 14,0 см";
+                }else if(footNum == 22){
+                    answ_6 = "14,5 см";
+                }else if(footNum == 23){
+                    answ_6 = "15,0 см";
+                }else if(footNum == 24){
+                    answ_6 = "15,5 - 16,0 см";
+                }else if(footNum == 25){
+                    answ_6 = "16,5 - 17,0 см";
+                }else if(footNum == 26){
+                    answ_6 = "17,0 см";
+                }else if(footNum == 27){
+                    answ_6 = "17,5 - 18,0 см";
+                }else if(footNum == 28){
+                    answ_6 = "18,0 - 18,5 см";
+                }else if(footNum == 29  ){
+                    answ_6 = "19,0 см";
+                }
+
+            }
+
         }
 
 
-        button_sport1.onclick = function () {
-
-            button_sport1.classList.add("push");
-            button_sport2.classList.remove("push");
-
-            answ_1 = "сноуборд"
-            console.log(answ_1);
-
-            q1.style.display = 'block';
-          
-    
-
-        };
-        button_sport2.onclick = function () {
-
-            button_sport2.classList.add("push");
-            button_sport1.classList.remove("push");
-
-            answ_1 = "лыжи"
-            console.log(answ_1);
-
-            q1.style.display = 'block';
-        };
-
-        button_skill1.onclick = function () {
-            button_skill1.classList.add("push");
-            button_skill2.classList.remove("push");
-            button_skill3.classList.remove("push");
-
-            answ_2 = "начинающий"
-            console.log(answ_2);
-
-            q2.style.display = 'block';
-
-        };
-        button_skill2.onclick = function () {
-            button_skill2.classList.add("push");
-            button_skill1.classList.remove("push");
-            button_skill3.classList.remove("push");
-
-            answ_2 = "продвинутый"
-            console.log(answ_2);
-
-            q2.style.display = 'block';
-        };
-
-        button_skill3.onclick = function () {
-            button_skill3.classList.add("push");
-            button_skill1.classList.remove("push");
-            button_skill2.classList.remove("push");
-
-            answ_2 = "эксперт"
-            console.log(answ_2);
-
-            q2.style.display = 'block';
-        };
 
 
 
-        button_gender1.onclick = function () {
-            button_gender1.classList.add("push");
-            button_gender2.classList.remove("push");
-            button_gender3.classList.remove("push");
 
-            answ_3 = "мужской"
-            console.log(answ_3);
 
-            q3.style.display = 'block';
-        };
 
-        button_gender2.onclick = function () {
-            button_gender2.classList.add("push");
-            button_gender1.classList.remove("push");
-            button_gender3.classList.remove("push");
 
-            answ_3 = "женский"
-            console.log(answ_3);
+        var q = "";
+        q += "sport=";
+        q += answ_1;
+        q += "&";
+        q += "skill=";
+        q += answ_2;
+        q += "&";
+        q += "gender=";
+        q += answ_3;
+        q += "&";
+        q += "weight=";
+        q += answ_4;
+        q += "&";
+        q += "height=";
+        q += answ_5;
+        q += "&";
+        q += "foot=";
+        q += answ_6;
+        q += "&";
+        q += "footsize=";
+        q += answ_7;
 
-            q3.style.display = 'block';
-        };
+        console.log(q);
+        return q;
+    }
 
-        button_gender3.onclick = function () {
-            button_gender3.classList.add("push");
-            button_gender2.classList.remove("push");
-            button_gender1.classList.remove("push");
 
-            answ_3 = "детский"
-            console.log(answ_3);
+    button_sport1.onclick = function () {
 
-            q3.style.display = 'block';
-        };
-        //вес
-        button_weight1.onclick = function () {
-            button_weight1.classList.add("push");
-            button_weight2.classList.remove("push");
-            button_weight3.classList.remove("push");
-            button_weight4.classList.remove("push");
-            button_weight5.classList.remove("push");
-            button_weight6.classList.remove("push");
+        button_sport1.classList.add("push");
+        button_sport2.classList.remove("push");
 
-            answ_4 = "-49"
-            console.log(answ_4);
+        answ_1 = "сноуборд"
+        console.log(answ_1);
 
-            q4.style.display = 'block';
-        };
-        button_weight2.onclick = function () {
-            button_weight2.classList.add("push");
-            button_weight1.classList.remove("push");
-            button_weight3.classList.remove("push");
-            button_weight4.classList.remove("push");
-            button_weight5.classList.remove("push");
-            button_weight6.classList.remove("push");
+        q1.style.display = 'block';
 
-            answ_4 = "50-59"
-            console.log(answ_4);
 
-            q4.style.display = 'block';
-        };
-        button_weight3.onclick = function () {
-            button_weight3.classList.add("push");
-            button_weight1.classList.remove("push");
-            button_weight2.classList.remove("push");
-            button_weight4.classList.remove("push");
-            button_weight5.classList.remove("push");
-            button_weight6.classList.remove("push");
 
-            answ_4 = "60-69"
-            console.log(answ_4);
+    };
+    button_sport2.onclick = function () {
 
-            q4.style.display = 'block';
-        };
-        button_weight4.onclick = function () {
-            button_weight4.classList.add("push");
-            button_weight1.classList.remove("push");
-            button_weight2.classList.remove("push");
-            button_weight3.classList.remove("push");
-            button_weight5.classList.remove("push");
-            button_weight6.classList.remove("push");
+        button_sport2.classList.add("push");
+        button_sport1.classList.remove("push");
 
-            answ_4 = "70-79"
-            console.log(answ_4);
+        answ_1 = "лыжи"
+        console.log(answ_1);
 
-            q4.style.display = 'block';
-        };
-        button_weight5.onclick = function () {
-            button_weight5.classList.add("push");
-            button_weight1.classList.remove("push");
-            button_weight2.classList.remove("push");
-            button_weight3.classList.remove("push");
-            button_weight4.classList.remove("push");
-            button_weight6.classList.remove("push");
+        q1.style.display = 'block';
+    };
 
-            answ_4 = "80-89"
-            console.log(answ_4);
+    button_w.onclick = function () {
+        button_w.classList.add("push");
+        q6.style.display = 'block';
 
-            q4.style.display = 'block';
-        };
-        button_weight6.onclick = function () {
-            button_weight6.classList.add("push");
-            button_weight1.classList.remove("push");
-            button_weight2.classList.remove("push");
-            button_weight3.classList.remove("push");
-            button_weight4.classList.remove("push");
-            button_weight5.classList.remove("push");
 
-            answ_4 = "90+"
-            console.log(answ_4);
+    };
+    button_foot.onclick = function () {
+        button_foot.classList.add("push");
+        q4.style.display = 'block';
 
-            q4.style.display = 'block';
-        };
-        //вес
-        button_height1.onclick = function () {
-            button_height1.classList.add("push");
-            button_height2.classList.remove("push");
-            button_height3.classList.remove("push");
-            button_height4.classList.remove("push");
-            button_height5.classList.remove("push");
-            button_height6.classList.remove("push");
 
-            answ_5 = "-124"
-            console.log(answ_5);
+    };
 
-            q5.style.display = 'flex';
-            sel_content.classList.add("wrapper_open");
-        };
-        button_height2.onclick = function () {
-            button_height2.classList.add("push");
-            button_height1.classList.remove("push");
-            button_height3.classList.remove("push");
-            button_height4.classList.remove("push");
-            button_height5.classList.remove("push");
-            button_height6.classList.remove("push");
 
-            answ_5 = "125-139"
-            console.log(answ_5);
+    button_skill1.onclick = function () {
+        button_skill1.classList.add("push");
+        button_skill2.classList.remove("push");
+        button_skill3.classList.remove("push");
 
-            q5.style.display = 'flex';
-            sel_content.classList.add("wrapper_open");
-        };
-        button_height3.onclick = function () {
-            button_height3.classList.add("push");
-            button_height1.classList.remove("push");
-            button_height2.classList.remove("push");
-            button_height4.classList.remove("push");
-            button_height5.classList.remove("push");
-            button_height6.classList.remove("push");
+        answ_2 = "начинающий"
+        console.log(answ_2);
 
-            answ_5 = "140-164"
-            console.log(answ_5);
+        q2.style.display = 'block';
 
-            q5.style.display = 'flex';
-            sel_content.classList.add("wrapper_open");
-        };
-        button_height4.onclick = function () {
-            button_height4.classList.add("push");
-            button_height1.classList.remove("push");
-            button_height2.classList.remove("push");
-            button_height3.classList.remove("push");
-            button_height5.classList.remove("push");
-            button_height6.classList.remove("push");
+    };
+    button_skill2.onclick = function () {
+        button_skill2.classList.add("push");
+        button_skill1.classList.remove("push");
+        button_skill3.classList.remove("push");
 
-            answ_5 = "155-169"
-            console.log(answ_5);
+        answ_2 = "продвинутый"
+        console.log(answ_2);
 
-            q5.style.display = 'flex';
-            sel_content.classList.add("wrapper_open");
-        };
-        button_height5.onclick = function () {
-            button_height5.classList.add("push");
-            button_height1.classList.remove("push");
-            button_height2.classList.remove("push");
-            button_height3.classList.remove("push");
-            button_height4.classList.remove("push");
-            button_height6.classList.remove("push");
+        q2.style.display = 'block';
+    };
 
-            answ_5 = "170-184"
-            console.log(answ_5);
+    button_skill3.onclick = function () {
+        button_skill3.classList.add("push");
+        button_skill1.classList.remove("push");
+        button_skill2.classList.remove("push");
 
-            q5.style.display = 'flex';
-            sel_content.classList.add("wrapper_open");
-        };
-        button_height6.onclick = function () {
-            button_height6.classList.add("push");
-            button_height1.classList.remove("push");
-            button_height2.classList.remove("push");
-            button_height3.classList.remove("push");
-            button_height4.classList.remove("push");
-            button_height5.classList.remove("push");
+        answ_2 = "эксперт"
+        console.log(answ_2);
 
-            answ_5 = "185-"
-            console.log(answ_5);
+        q2.style.display = 'block';
+    };
 
-            q5.style.display = 'flex';
-            sel_content.classList.add("wrapper_open");
-        };
-    </script>
+
+
+    button_gender1.onclick = function () {
+        button_gender1.classList.add("push");
+        button_gender2.classList.remove("push");
+        button_gender3.classList.remove("push");
+
+        answ_3 = "мужской"
+        console.log(answ_3);
+
+        q3.style.display = 'block';
+    };
+
+    button_gender2.onclick = function () {
+        button_gender2.classList.add("push");
+        button_gender1.classList.remove("push");
+        button_gender3.classList.remove("push");
+
+        answ_3 = "женский"
+        console.log(answ_3);
+
+        q3.style.display = 'block';
+    };
+
+    button_gender3.onclick = function () {
+        button_gender3.classList.add("push");
+        button_gender2.classList.remove("push");
+        button_gender1.classList.remove("push");
+
+        answ_3 = "детский"
+        console.log(answ_3);
+
+        q3.style.display = 'block';
+    };
+    //вес
+
+    //вес
+    button_h.onclick = function () {
+        button_h.classList.add("push");
+        q5.style.display = 'flex';
+        sel_content.classList.add("wrapper_open");
+
+
+    };
+
+</script>
 </body>
 
 </html>

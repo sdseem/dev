@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/profile_history.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
+                    <div id="sublink1" class="dropdown-content">
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="profile_selection_title_container">
+        <div class="profile_selection_title_container_item">
+            <div class="profile_selection_title_container_item_theme">Профиль</div>
+        </div>
+    </div>
+
+    <div id="profile_sel_content" class="profile_wrapper">
+
+
+        <div class="user_nav_menu">
+            <div class="user_icon">
+                <img width="70px" src="images/user_icon.png">
+            </div>
+            <div class="user_button_update">
+                <input type="button" onclick="location.href = 'http://localhost:8100/profile/update';" id="button_update" class="profile_double-border-button"  value="Редактировать">
+            </div>
+            <div class="user_button_exit">
+                <input type="button" onclick="location.href = 'http://localhost:9011/oauth2/logout?client_id=44f5052e-f85b-4900-b3e8-868933c7682c';" id="button_exit" class="profile_double-border-button"  value="Выйти">
+            </div>
+        </div>
+
+        <div class="user_description">
+            <div class="user_name">
+                <div class="user_title">
+                    Имя:
+                </div>
+                <div th:text="${fullname}" class="title_name">
+
+                </div>
+            </div>
+
+            <div class="user_name">
+                <div class="user_title">
+                    Пол:
+                </div>
+                <div th:text="${user.getGender()}" class="title_name">
+
+                </div>
+            </div>
+
+            <div class="user_name">
+                <div class="user_title">
+                    Возраст:
+                </div>
+                <div th:text="${user.getAge()}" class="title_name">
+
+                </div>
+            </div>
+            <div class="user_name">
+                <div class="user_title">
+                    Email:
+                </div>
+                <div th:text="${user.getEmail()}" class="title_name">
+
+                </div>
+            </div>
+            <div class="user_name">
+                <div class="user_title">
+                    Телефон:
+                </div>
+                <div th:text="${user.getPhone()}" class="title_name">
+                    89379715005
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile_selection_title_container">
+        <div class="profile_selection_title_container_item">
+            <div class="profile_selection_title_container_item_theme">История подбора снаряжения</div>
+        </div>
+    </div>
+
+    <div th:each="h : ${selectionHistory}" class="history_cont">
+        <div class="history_title_query">
+            <u>Параметры поиска:</u>
+
+            <span class="h_query">
+                вид спорта -
+                <span th:text="${h.getSport()}" class="history_sport">сноуборд</span>
+                , уровень катания -
+                <span th:text="${h.getSkill()}" class="history_skill">
+                    начинающий
+                </span>
+                , пол -
+                <span th:text="${h.getGender()}" class="history_gender">
+                    мужской
+                </span>
+                , вес -
+                <span th:text="${h.getWeight()}" class="history_weight">
+                    52
+                </span>
+                , рост -
+                <span th:text="${h.getHeight()}" class="history_heigth">
+                    152
+                </span>
+                , размер ноги -
+                <span th:text="${h.getFootSize()}" class="history_leg_size">
+                    39
+                </span>
+            </span>
+        </div>
+        <div class="history_title_query_result">
+            Результат подбора:
+        </div>
+        <div class="history_selection_content">
+
+            <div th:if="${h.getItem1()} != null" id="history_gtco-post-list">
+                <div th:text="${h.getItem1().getItemName()}" class="history_title_eq">
+                    NIDECKER Alpha Apx
+                </div>
+                <div class="history_entry">
+                    <a href="./blog_sample.html">
+                        <div class="history_asd">
+                            <div class="history_entry-img"
+                                 th:style="'background-image: url(../images/' + ${h.getItem1().getItemPicturePath()} + ')'">
+                            </div>
+                            <div class="history_entry-desc">
+                                <div class="history_size_eq">
+                                    Размер:&nbsp;
+                                    <div th:text="${h.getLen()}" class="history_size_num">
+                                        158
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div th:if="${h.getItem2()} != null" id="history_gtco-post-list">
+                <div th:text="${h.getItem2().getItemName()}" class="history_title_eq">
+                    NIDECKER Alpha Apx
+                </div>
+                <div class="history_entry">
+                    <a href="./blog_sample.html">
+                        <div class="history_asd">
+                            <div class="history_entry-img"
+                                 th:style="'background-image: url(../images/' + ${h.getItem2().getItemPicturePath()} + ')'">
+                            </div>
+                            <div class="history_entry-desc">
+                                <div class="history_size_eq">
+                                    Размер:&nbsp;
+                                    <div th:text="${h.getBootSize()}" class="history_size_num">
+                                        158
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div th:if="${h.getItem3()} != null" id="history_gtco-post-list">
+                <div th:text="${h.getItem3().getItemName()}" class="history_title_eq">
+                    NIDECKER Alpha Apx
+                </div>
+                <div class="history_entry">
+                    <a href="./blog_sample.html">
+                        <div class="history_asd">
+                            <div class="history_entry-img"
+                                 th:style="'background-image: url(../images/' + ${h.getItem3().getItemPicturePath()} + ')'">
+
+                            </div>
+                            <div class="history_entry-desc">
+
+
+                                <div class="history_size_eq">
+                                    Размер:&nbsp;
+                                    <div class="history_size_num">
+                                        Подбирается под ботинки
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div th:if="${h.getItem4()} != null" id="history_gtco-post-list">
+                <div th:text="${h.getItem4().getItemName()}" class="history_title_eq">
+                    NIDECKER Alpha Apx
+                </div>
+                <div class="history_entry">
+                    <a href="./blog_sample.html">
+                        <div class="history_asd">
+                            <div class="history_entry-img"
+                                 th:style="'background-image: url(../images/' + ${h.getItem4().getItemPicturePath()} + ')'">
+                            </div>
+                            <div class="history_entry-desc">
+                                <div class="history_size_eq">
+                                    Размер:&nbsp;
+                                    <div th:text="${h.getPoleLen()}" class="history_size_num">
+                                        158
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="section-p1 footer">
+    <div class="col">
+        <a href="http://localhost:8100">
+            <img th:src="@{../images/iconex2.png}" alt="" class="footer_logo" height="60px">
+            <div class="footer_logo_title">HILL LIFE</div>
+        </a>
+    </div>
+    <div class="col1">
+        <h4>Навигация</h4>
+        <a href="http://localhost:8100/blog">Лента</a>
+        <a href="http://localhost:8100/resorts">Курорты</a>
+        <a href="http://localhost:8100/cart">Инвентарь</a>
+    </div>
+
+    <div class="col2">
+        <h4>Мой профиль</h4>
+        <a href="http://localhost:8100">Войти</a>
+        <a href="http://localhost:8100">Зарегистрироваться</a>
+        <a href="http://localhost:8100">Помощь</a>
+    </div>
+    <div class="col3">
+        <h4>Контакты</h4>
+        <p><strong>Адрес:</strong> г.Москва</p>
+        <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+        <p><strong>Часы работы:</strong> круглосуточно</p>
+    </div>
+
+</footer>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>
