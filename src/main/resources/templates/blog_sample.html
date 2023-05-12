@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="bs2">
-                    <img class="bs2_image" th:src="@{${'../images/' + post.getPostMainPicture()}}">
+                    <img class="bs2_image" th:src="@{${'/publication/images/' + post.getPostMainPicture()}}">
                 </div>
                 <div class="bs3">
 
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="bs3_image_container">
-                        <img class="bs3_image" th:src="@{${'../images/' + post.getPostPicA()}}">
+                        <img class="bs3_image" th:src="@{${'/publication/images/' + post.getPostPicA()}}">
                     </div>
                     <div class="b3_subsection">
                         <span th:utext="${post.getPostContentB()}" class="blog_title_paragh_decsr"></span>

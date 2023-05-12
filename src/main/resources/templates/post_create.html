@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание новости</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/post_create.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <section id="header">
+        <a class="logo" href="./index.html">
+            <img src="/images/iconex2.png" alt="" height="45px">
+        </a>
+
+        <div style="display: flex;">
+            <ul id="header_navigation">
+                <li><a class="nav_link1 link" href="./blog.html">Лента</a></li>
+                <li>
+                    <a class="link nav_link2" href="">Новичкам</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="link nav_link3" href="">Курорты</a>
+                        <div id="sublink" class="dropdown-content">
+                            <a href="#">Россия</a>
+                            <a href="#">Зарубежье</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="link nav_link4" href="./equipment.html">Инвентарь</a>
+                        <div id="sublink" class="dropdown-content">
+                            <a href="#">Горные лыжи</a>
+                            <a href="#">Сноуборд</a>
+                            <a href="#">Аксессуары</a>
+                        </div>
+                    </div>
+                </li>
+                <li id="lc"><a href="./login_form.html"><button class="nav_link5">Войти</button></a></li>
+                <a href="#" id="close"><img src="/images/close.png" height="20px"></a>
+
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+
+        </div>
+    </section>
+
+    <div class="post_create_selection_title_container">
+        <div class="post_create_selection_title_container_item">
+            <div class="post_create_selection_title_container_item_theme">Создание новости</div>
+        </div>
+    </div>
+
+    <div id="post_create_up_sel_content" class="post_create_wrapper">
+        <div class="post_create_description">
+            <form method="post" th:action="@{/edit/publication}" th:object="${newPost}" enctype="multipart/form-data">
+                <div class="post_name">
+                    <div class="post_title">
+                        Название новости:
+                    </div>
+                    <input th:field="*{postName}" name="post_name" type="text" id="input_post_name" class="post_create_double-border-input" value="" style="width: 600px;">
+                </div>
+                <div class="post_name">
+                    <div class="post_title">
+                        Краткое описание новости:
+                    </div>
+                    <textarea th:field="*{postDescription}" id="input_post_description" name="post_description" class="post_create_double-border-input" style="height: 100px; width: 600px;" value=""></textarea>
+                </div>
+                <div class="post_name">
+                    <div class="post_title">
+                       Первая картинка:
+                    </div>
+                    <input type="file" class="post_create_double-border-input" name="post_image1" id="input_post_image1">
+                </div>
+                <div class="post_name">
+                    <div class="post_title">
+                        Содержимое до картинки:
+                    </div>
+                    <textarea th:field="*{postContentA}" id="input_post_content_a" name="post_content_a" class="post_create_double-border-input" style="height: 100px; width: 600px;" value=""></textarea>
+                </div>
+
+                <div class="post_name">
+                    <div class="post_title">
+                       Вторая картинка:
+                    </div>
+                    <input type="file" class="post_create_double-border-input" name="post_image2" id="input_post_image2">
+                </div>
+                <div class="post_name">
+                    <div class="post_title">
+                        Содержимое после картинки:
+                    </div>
+                    <textarea th:field="*{postContentB}" id="input_post_content_b" name="post_content_b" class="post_create_double-border-input" style="height: 100px; width: 600px;" value=""></textarea>
+                </div>
+
+
+
+                <button type="submit" class="post_create_double-border-buttonn">
+                    Сохранить новость
+                </button>
+
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="http://localhost:8100"><img src="/images/iconex2.png" alt="" class="footer_logo" height="60px"></a>
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="http://localhost:8100/blog">Лента</a>
+            <a href="http://localhost:8100/blog?tag=Новичкам">Обучение</a>
+            <a href="http://localhost:8100/resorts">Курорты</a>
+            <a href="http://localhost:8100/cart">Подбор инвентаря</a>
+
+        </div>
+
+        <div class="col2">
+            <h4>Мой аккаунт</h4>
+            <a href="http://localhost:8100/profile">Войти</a>
+            <a href="http://localhost:8100/profile">Зарегистрироваться</a>
+            <a href="http://localhost:8100/profile">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Саратов</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong>круглосуточно</p>
+            <div class="follow">
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="/js/script.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>

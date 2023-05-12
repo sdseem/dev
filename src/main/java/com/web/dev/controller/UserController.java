@@ -1,11 +1,14 @@
 package com.web.dev.controller;
 
+import com.web.dev.dto.PostCreateDto;
 import com.web.dev.dto.UserInfo;
+import com.web.dev.entity.Post;
 import com.web.dev.entity.PostComment;
 import com.web.dev.entity.SelectionHistory;
 import com.web.dev.entity.User;
 import com.web.dev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -13,9 +16,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -59,5 +71,34 @@ public class UserController {
                            HttpServletResponse response) throws IOException {
         userService.updateUserInfo(user.getSubject(), userInfo);
         response.sendRedirect("http://localhost:8100/profile");
+    }
+
+    @GetMapping("/edit/publication")
+    public String showPostCreation(Model model,
+                                   @AuthenticationPrincipal OidcUser user) {
+        model.addAttribute("newPost", new PostCreateDto());
+        return "post_create";
+    }
+
+    @PostMapping(value = "/edit/publication", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public void createPost(@ModelAttribute("newPost") PostCreateDto postCreateDto,
+                           @RequestParam(name = "post_image1") MultipartFile file1,
+                           @RequestParam(name = "post_image2") MultipartFile file2,
+                           @AuthenticationPrincipal OidcUser user,
+                           HttpServletResponse response) throws IOException {
+        if (file1 == null) throw new NoSuchElementException();
+        if (file1.getOriginalFilename() == null) throw new NoSuchElementException();
+        if (file2 == null) throw new NoSuchElementException();
+        if (file2.getOriginalFilename() == null) throw new NoSuchElementException();
+        Post post = userService.addPost(user.getSubject(), postCreateDto, file1.getOriginalFilename(), file2.getOriginalFilename());
+        Path currentRelativePath = Paths.get("");
+        String folder = currentRelativePath.toAbsolutePath() + "/imgs/";
+        byte[] img1 = file1.getBytes();
+        Path path1 = Paths.get(folder + post.getPostMainPicture());
+        Files.write(path1, img1);
+        byte[] img2 = file2.getBytes();
+        Path path2 = Paths.get(folder + post.getPostPicA());
+        Files.write(path2, img2);
+        response.sendRedirect("http://localhost:8100/blog/publication/" + post.getId());
     }
 }

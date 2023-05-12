@@ -1,0 +1,160 @@
+ /*fonts*/
+ @font-face {
+   font-family: "MuseoSans300";
+   src: url("../fonts/Museo/museosanscyrl-300.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans500";
+   src: url("../fonts/Museo/museosanscyrl-500.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans900";
+   src: url("../fonts/Museo/museosanscyrl-900.ttf");
+ }
+
+ @font-face {
+   font-family: "MuseoSans700";
+   src: url("../fonts/Museo/museosanscyrl-700.ttf");
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+ }
+
+ /*title*/
+ .post_create_selection_title_container {
+   width: 80%;
+   display: flex;
+   margin: 0 auto;
+   margin-top: 2%;
+   margin-bottom: 20px;
+ }
+
+ .post_create_selection_title_container_item {
+   grid-area: cardtm;
+   font-family: "MuseoSans900";
+   font-size: 28px;
+   text-transform: uppercase;
+   margin-top: 5px;
+
+ }
+
+ .post_create_selection_title_container_item_theme {
+   position: relative;
+   color: #000000;
+   font-weight: normal;
+   padding: 8px 10px 7px 10px;
+   border-top: 4px solid;
+   border-left: 4px solid;
+   display: inline-block;
+   margin: 0;
+   line-height: 1;
+ }
+
+.post_create_double-border-buttonn {
+  outline:none;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 0px;
+  margin-top: 1%;
+  padding: 10px 20px;
+  position: relative;
+  border: 2px solid #FFE600;
+  background-color: #FFE600;
+  border-radius: 20px;
+  min-width: 90px;
+  color: #000000;
+  font-family: "MuseoSans500";
+  font-size: 16px;
+  line-height: 1.4;
+  transition: .4s;
+}
+
+.post_create_double-border-buttonn:hover {
+  background: linear-gradient(90deg, #FFE600 10%, rgb(255, 255, 255));
+}
+
+  
+ .post_create_double-border-input {
+   outline:none;
+   text-decoration: none;
+   display: inline-block;
+   margin: 0px 5px;
+   padding: 5px 10px;
+   position: relative;
+   border: 2px solid #414040;
+   background-color: #ffffff;
+   min-width: 200px;
+   color: #000000;
+   font-family: "MuseoSans500";
+   font-size: 16px;
+   line-height: 1.4;
+   transition: .4s;
+   
+ }
+
+
+
+ 
+
+ .post_name{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+ }
+
+ 
+
+ 
+ .post_title{
+  width: 300px;
+  color: #000000;
+  font-family: "MuseoSans500";
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: bold;
+  margin: 0;
+
+ }
+
+ .post_create_description{
+  margin-left: 1%;
+  margin-top: 1%;
+  padding-top: 1%;
+
+ }
+
+
+ .post_create_wrapper {
+   width: 80%;
+   height: auto;
+   margin: 0 auto;
+   background: #FFFFFF;
+   padding-bottom: 1%;
+   margin-bottom: 1%;
+ }
+
+ .wrapper_open {
+   padding-bottom: 0%;
+ }
+
+ @keyframes ani {
+   0% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+
+
+
+

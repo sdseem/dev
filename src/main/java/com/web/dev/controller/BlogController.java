@@ -6,7 +6,10 @@ import com.web.dev.repository.UserRepository;
 import com.web.dev.repository.ViewHistoryRepository;
 import com.web.dev.service.BlogService;
 import com.web.dev.service.UserService;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.util.*;
 
@@ -56,6 +65,9 @@ public class BlogController {
             creator.ifPresent(value -> model.addAttribute("user", value));
             model.addAttribute("post", post);
             model.addAttribute("tags", tags);
+            Path currentRelativePath = Paths.get("");
+            String path = currentRelativePath.toAbsolutePath() + "/src/main/resources/images/";
+            model.addAttribute("pathImages", path);
 
             List<PostComment> comments = blogService.getCommentsByPost(postId);
             model.addAttribute("comments", comments);
@@ -144,5 +156,12 @@ public class BlogController {
                              HttpServletResponse response) throws IOException {
         blogService.saveComment(user.getSubject(), postComment);
         response.sendRedirect("http://localhost:8100/blog/publication/" + postComment.getPost());
+    }
+
+    @GetMapping("/publication/images/{filename}")
+    public @ResponseBody byte[] loadImage(@PathVariable(name = "filename") String filename) throws URISyntaxException, IOException {
+        Path source = Paths.get("").toAbsolutePath();
+        Path path = Paths.get(source.toString(), "/imgs/" + filename);
+        return Files.readAllBytes(path);
     }
 }

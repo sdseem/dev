@@ -1,13 +1,17 @@
 package com.web.dev.service;
 
+import com.web.dev.dto.PostCreateDto;
 import com.web.dev.dto.UserInfo;
+import com.web.dev.entity.Post;
 import com.web.dev.entity.SelectionHistory;
 import com.web.dev.entity.User;
+import com.web.dev.repository.PostRepository;
 import com.web.dev.repository.SelectionHistoryRepository;
 import com.web.dev.repository.UserRepository;
 import com.web.dev.repository.ViewHistoryRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,11 +20,13 @@ public class UserService {
     private final UserRepository userRepository;
     private final ViewHistoryRepository viewHistoryRepository;
     private final SelectionHistoryRepository selectionHistoryRepository;
+    private final PostRepository postRepository;
 
-    public UserService(UserRepository userRepository, ViewHistoryRepository viewHistoryRepository, SelectionHistoryRepository selectionHistoryRepository) {
+    public UserService(UserRepository userRepository, ViewHistoryRepository viewHistoryRepository, SelectionHistoryRepository selectionHistoryRepository, PostRepository postRepository) {
         this.userRepository = userRepository;
         this.viewHistoryRepository = viewHistoryRepository;
         this.selectionHistoryRepository = selectionHistoryRepository;
+        this.postRepository = postRepository;
     }
 
     public User getUserByFusionId(String fusionId) {
@@ -66,5 +72,22 @@ public class UserService {
             }
             userRepository.save(user);
         }
+    }
+
+    public Post addPost(String fusionId, PostCreateDto dto, String file1, String file2) {
+        User user = userRepository.findByFusionId(fusionId).orElseThrow();
+        Post post = new Post();
+        post.setPostCreator(user.getId());
+        post.setPostName(dto.postName);
+        post.setPublicationDate(new Date());
+        post.setPostDescription(dto.postDescription);
+        post.setPostContentA(dto.postContentA);
+        post.setPostContentB(dto.postContentB);
+        post.setViewCount(0);
+        postRepository.save(post);
+        post.setPostMainPicture(post.getId() + "1_" + file1.replaceAll(" ", "_"));
+        post.setPostPicA(post.getId() + "2_" + file2.replaceAll(" ", "_"));
+        postRepository.save(post);
+        return post;
     }
 }
