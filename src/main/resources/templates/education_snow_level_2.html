@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/education_snow_level_2.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
+                    <div id="sublink1" class="dropdown-content">
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="selection_title_container">
+        <div class="selection_title_container_item">
+            <div class="selection_title_container_item_theme">Уровень 2. Основная стойка на сноуборде</div>
+        </div>
+    </div>
+
+    <div id="sel_content" class="wrapper">
+
+        <div id="quest1">
+
+            <div class="edu_img1">
+                <img class="img1" src="./images/edus3.png">
+            </div>
+
+            <div class="title1">
+                Зачем нужна основная стойка
+            </div>
+            <div class="title2">
+                В каждом виде спорта есть такое положение частей тела, которое помогает быстрее реагировать на ситуацию,
+                тратить минимум сил и добиваться результата. Волейбол, футбол, гимнастика, батутный спорт — везде есть
+                базовые позиции и стойки. Смысл в том, что наше тело — это некая система из рычагов и центров масс его
+                частей. Основная стойка нужна, чтобы объединить их в единый узел, а затем заставить действовать
+                оптимальным образом. Основная стойка — это базовое состояние из которого начинает действовать
+                сноубордист, чтобы управлять доской без потерь энергии. За счёт этого ехать быстрее, сильнее врезаться в
+                снег, проще держать баланс.
+
+            </div>
+            <div class="edu_img1">
+                <img class="img2" src="./images/edus4.png">
+            </div>
+
+            <div class="title2">
+                Первоочередная задача стойки на сноуборде — объединить плечи и таз в единую систему. Постараться
+                добиться такого положения, чтобы на скорости тело помогало держать равновесие и тратило меньше сил, а не
+                разбалтывалось над доской. Если таз вываливается за сноуборд, то для компенсации корпус наклоняется
+                вперёд, а мышцы пресса и спины излишне напрягаются. На кочках эти оттопыреные части начинает расшатывать
+                в разные стороны, что приводит к колебаниям общего центра масс и снижению управляемости. Если же мы
+                стоим ровно, то тратим меньше сил и проще управляем сноубордом.
+            </div>
+            <div class="title2">
+                &bull; Попробуйте встать и наклонить корпус вперёд. Почувствуйте, как распределилась нагрузка по телу,
+                какие мышцы напряглись. А теперь встаньте прямо и расслабьтесь. Спросите себя: как было легче? Как будет
+                проще стоять на сноуборде?
+            </div>
+            
+                <div class="line">
+
+                </div>
+                <div class="slogan">
+                    Расслабьтесь и встаньте ровно.
+                </div>
+
+                <div class="line">
+
+                </div>
+                <div class="edu_img1">
+                    <img class="img1" src="./images/edus5.png">
+                </div>
+
+
+                <div class="title2">
+                    Корпус — это ещё не всё, чтобы система заработала нужно подвесить его на ногах — рессорах. Если
+                    кататься на прямых ногах, то вибрации и неровности склона будут предаваться по суставам в тело и
+                    вызывать неприятные ощущения. Но если ноги всегда держать согнутыми, то они будут быстрее уставать и
+                    просить отдыха. Если постоянно «висеть» на одной ноге, то кант будет загружен не полностью, а доску
+                    будет срывать на скоростях. Во время катания мы будем сгибать и разгибать ноги, переносить вес на
+                    одну ногу и обратно, но делать это мы будем осознанно и в нужный момент. Так мы сможем уверенно
+                    ехать по любым покрытиям и уклонам.
+                </div>
+                <div class="title2">
+                    &bull; Попробуйте слегка подпрыгнуть и напрячь ноги, когда будете приземляться. А потом сильно
+                    согните их и замрите на минуту. Посмотрите, что из этого выйдет.
+                </div>
+
+                <div class="line">
+
+                </div>
+                <div class="slogan">
+                    Равномерно загрузите обе ноги.
+                </div>
+
+                <div class="line">
+
+                </div>
+                <div class="edu_img1">
+                    <img class="img1" src="./images/edus6.png">
+                </div>
+                <div class="title2">
+                    На третьем этапе нужно развернуть корпус на угол переднего крепления, направить взгляд вперёд, а
+                    руки отодвинуть от тела. Всё это поможет лучше держать баланс над доской. Если колени выкручены
+                    наружу, то нагрузка от доски передаётся неоптимально. На скорости доска будет излишне скручена и её
+                    будет срывать. Если смотреть вниз, то тело будет стремиться попасть в указанную точку. Если всё
+                    время держать руки прижатыми к телу, то будет сложно делать микрокорректировки баланса. Но если всё
+                    сделать с умом, то стабильность и удовольствие от катания возрастут.
+                </div>
+                <div class="title2">
+                    &bull; Попробуйте вспомнить, где ещё нужно смотреть вперёд, чтобы не напортачить
+                </div>
+                <div class="line">
+
+                </div>
+                <div class="slogan">
+                    Смотрите вперед.
+                </div>
+
+                <div class="line">
+
+                </div>
+
+
+                <div class="title1">
+                    Как определить ведущую ногу на сноуборде
+                </div>
+                <div class="title2">
+                    Сноубордисты катаются боком — правой или левой ногой вниз по склону. Та нога, что катится вниз
+                    первой называется передней, та, что остаётся сзади — задней. Названия эти придумали для того, чтобы
+                    упростить общение между людьми. Если вместо передней и задней ноги говорить правая и левая, то
+                    возникает путаница. Для одного человека правая нога будет впереди, а для другого — сзади. Поэтому
+                    одна и та же фраза: «переноси вес на правую ногу», будет восприниматься диаметрально противоположно
+                    и приведёт к недопониманию.
+                </div>
+                <div class="title2">
+                    То, какая нога будет впереди зависит от того, как формировалось ваше тело в процессе взросления и не
+                    зависит от того правша вы или левша. Наше тело может приспособиться к любым ограничениям и чаще
+                    всего развивается нессимметрично. Если какая-то часть тела выходит из строя, то для выживания
+                    организма её функция перекладывается на другие элементы системы. Если подвернуть ногу, то временно
+                    часть работы по перемещению возьмёт на себя другая. Пока одна нога заживает, вторая выполняет
+                    двойную норму и «прокачивается». В тот момент, когда вы полностью излечитесь в организме уже пошёл
+                    перекос, который надо восстановить. Но не все об этом знают.
+                </div>
+
+                <div class="title2">
+                    Чтобы определить переднюю ногу на сноуборде найдите замерзшую лужу или плотный кусок снега.
+                    Разгонитесь и прокатитесь по ней несколько раз. Та нога, что будет впереди и есть ваша передняя
+                    нога. Если впереди окажется правая нога, то вы — гуфи, если левая — регуляр. Но не зацикливайтесь на
+                    этом — в любой момент стойку можно сменить. Помните, что чем чаще вы будете кататься одним боком,
+                    чем больше опыта наберётесь и из больших передряг выпутаетесь, тем легче будет кататься на одну
+                    сторону, чем другую.
+                </div>
+                
+    
+                
+
+        </div>
+
+        <div id="buttonres" class="resbut">
+            <div><a onclick="location.href='/education?sport=сноуборд&level=2'" class="double-border-button">Следующий уровень</a></div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div id="descr_result" class="recomendations_choice">
+        <div class="rec_content">
+            <div id="str1" class="title_recom"></div>
+            <div id="str2" class="descr_recom">
+
+            </div>
+            <div id="str3" class="descr_recom">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="./index.html"><img src="./images/iconex2.png" alt="" class="footer_logo" height="60px"></a>
+
+
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="./blog.html">Лента</a>
+            <a href="#">Обучение</a>
+            <a href="./resorts.html">Курорты</a>
+            <a href="#">Инвентарь</a>
+
+        </div>
+
+        <div class="col2">
+            <h4>Мой аккаунт</h4>
+            <a href="./login_form.html">Войти</a>
+            <a href="#">Зарегистрироваться</a>
+            <a href="#">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Москва</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong> круглосуточно</p>
+            <div class="follow">
+                <h4>Подписывайся: <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+</body>
+
+</html>

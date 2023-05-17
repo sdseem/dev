@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/education_sport.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
+                    <div id="sublink1" class="dropdown-content">
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="selection_title_container">
+        <div class="selection_title_container_item">
+            <div class="selection_title_container_item_theme">Обучающий раздел</div>
+        </div>
+    </div>
+
+    <div id="sel_content" class="wrapper">
+
+        <div id="quest1">
+            <div class="title1">
+                В данном разделе вы можете пройти небольшое теоритическое обучение для новичков. Обучение будет состоять
+                из нескольких уровней, которые будут включать в себя: безопасность при падениях, стойку, соскальзывание
+                вниз по склону, боковое соскальзывание. Эти базовые знания являются основой для первого катания.
+            </div>
+            <div class="title2">
+                Выберите спорт, обучение которого вам интересно:
+            </div>
+            <div class="answers">
+
+            </div>
+        </div>
+
+        <div id="buttonres" class="resbut">
+            <div><a onclick="location.href='/education?sport=сноуборд&level=0'"  class="double-border-button">Сноуборд</a></div>
+            <div>   <a onclick="location.href='/education?sport=лыжи'" class="double-border-button">Горные лыжи</a></div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div id="descr_result" class="recomendations_choice">
+        <div class="rec_content">
+            <div id="str1" class="title_recom"></div>
+            <div id="str2" class="descr_recom">
+
+            </div>
+            <div id="str3" class="descr_recom">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="./index.html"><img src="./images/iconex2.png" alt="" class="footer_logo" height="60px"></a>
+
+
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="./blog.html">Лента</a>
+            <a href="#">Обучение</a>
+            <a href="./resorts.html">Курорты</a>
+            <a href="#">Инвентарь</a>
+
+        </div>
+
+        <div class="col2">
+            <h4>Мой аккаунт</h4>
+            <a href="./login_form.html">Войти</a>
+            <a href="#">Зарегистрироваться</a>
+            <a href="#">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Москва</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong> круглосуточно</p>
+            <div class="follow">
+                <h4>Подписывайся: <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+</body>
+
+</html>

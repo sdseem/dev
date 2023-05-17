@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/education_snow_level_4.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
+                    <div id="sublink1" class="dropdown-content">
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="selection_title_container">
+        <div class="selection_title_container_item">
+            <div class="selection_title_container_item_theme">Уровень 4. Боковое соскальзывание</div>
+        </div>
+    </div>
+
+    <div id="sel_content" class="wrapper">
+
+        <div id="quest1">
+
+            <div class="title1">
+                Формируем и корректируем стойку
+            </div>
+            <div class="title2">
+                Как вы помните, основная задача стойки — объеденить таз и плечи в единую систему, чтобы тело не мотало,
+                как желе. При переносе веса на одну ногу эту систему нужно сохранить. Нагрузка должна распределиться по
+                мышцам равномерно, а спина — остаться прямой. Таз и плечи при этом должны пройти разное расстояние от
+                центра доски. Поэтому в момент переноса веса двигаться они будут с разной скоростью. Если сделать всё
+                чётко, то между ногами и верхней частью тела образуется устойчивый треугольник, который не позволит телу
+                разбалтываться.
+
+            </div>
+            <div class="edu_img1">
+                <img class="img1" src="./images/edus11.png">
+            </div>
+
+            <div class="title2">
+                Правильно перенести вес на одну из ног сложно. В обычной жизни мало у кого есть такой мышечный шаблон,
+                который позволит сразу встать в стойку и не испытывать неудобств. Поначалу вообще будет казаться, что вы
+                стоите криво. Эти ощущения появятся из-за того, что наши плечи обычно находятся параллельно земле, а
+                мышцы на боках равномерно держат корпус. Когда же вы встанете в стойку и перенесёте вес, то мышцы на
+                одном боку растянутся, а на другом — сожмуться, что и создаст ощущение «кривизны».
+            </div>
+            <div class="edu_img1">
+                <img class="img1" src="./images/edus12.png">
+            </div>
+
+            <div class="title2">
+                Скрутить доску можно разными частями тела: опустить одну стопу, а вторую потянуть на себя, согнуть одно
+                колено, а второе — разогнуть, подать бедро вперёд, а второе оставить сзади. Все мы будем делать это по
+                своему, потому что у каждого из нас тело взрослело по-разному. Кто-то катался на коньках и прокачал
+                стопы, поэтому может без труда скрутить ими доску, не перенося вес. Кто-то играл в футбол, привык
+                опираться на одну ногу и поэтому скручивать доску в одну сторону ему будет проще. Кто-то в детстве
+                подвернул ногу и будет меньше на неё опираться, а нагрузку вместо стопы «посадит» на колено. Вариантов —
+                масса.
+            </div>
+            <div class="title2">
+                &bull; Из-за особенностей строения тела парни и девушки переносят вес по разному. У парней центр масс
+                смещён ближе к плечам, поэтому им проще перенести вес верхней частью тела. У девчонок центр масс смещён
+                к тазу, поэтому им проще переносить вес нижней частью тела, а верх оставлять на месте, потому что при
+                наклоне стоять страшнее.
+                <br>
+                &bull; Не нужно полагаться на то, что тело само встанет как надо, а тем более — правильно перенесёт вес.
+                Если не отрабатывать движения, а использовать силу мысли, то доска будет скручиваться за счёт
+                наработанных шаблонов, которые не всегда оптимальны.
+            </div>
+
+            <div class="line">
+
+            </div>
+            <div class="slogan">
+                При переносе веса держите стойку.
+            </div>
+
+            <div class="line" style="margin-bottom: 2%;">
+
+            </div>
+        </div>
+
+        <div id="buttonres" class="resbut">
+            <div><a onclick="location.href='/education/test'" class="double-border-button">Пройти тестирование</a></div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div id="descr_result" class="recomendations_choice">
+        <div class="rec_content">
+            <div id="str1" class="title_recom"></div>
+            <div id="str2" class="descr_recom">
+
+            </div>
+            <div id="str3" class="descr_recom">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="./index.html"><img src="./images/iconex2.png" alt="" class="footer_logo" height="60px"></a>
+
+
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="./blog.html">Лента</a>
+            <a href="#">Обучение</a>
+            <a href="./resorts.html">Курорты</a>
+            <a href="#">Инвентарь</a>
+
+        </div>
+
+        <div class="col2">
+            <h4>Мой аккаунт</h4>
+            <a href="./login_form.html">Войти</a>
+            <a href="#">Зарегистрироваться</a>
+            <a href="#">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Москва</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong> круглосуточно</p>
+            <div class="follow">
+                <h4>Подписывайся: <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+</body>
+
+</html>

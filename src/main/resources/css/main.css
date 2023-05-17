@@ -67,7 +67,7 @@
 	text-shadow: 0 0 15px #dbb849;
 }
 .layers__title {
-	margin-left: 60%;
+	margin-left: 64%;
 	margin-bottom: 30%;
 	font-size: calc(var(--index) * 2.35);
 	letter-spacing: calc(var(--index) / 2.25);

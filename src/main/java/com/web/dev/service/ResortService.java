@@ -28,9 +28,9 @@ public class ResortService {
         if (place == null || place.isEmpty()) {
             throw new NoSuchElementException("Empty filter");
         }
-        if (place.toLowerCase().equals("россия")) {
+        if (place.equalsIgnoreCase("россия")) {
             return resortRepository.findAllByResortPlace("Россия");
-        } else if (place.toLowerCase().equals("зарубежье")) {
+        } else if (place.equalsIgnoreCase("зарубежье")) {
             return resortRepository.findAllByResortPlaceNot("Россия");
         } else {
             throw new NoSuchElementException("Empty filter");

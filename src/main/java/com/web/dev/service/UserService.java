@@ -4,11 +4,9 @@ import com.web.dev.dto.PostCreateDto;
 import com.web.dev.dto.UserInfo;
 import com.web.dev.entity.Post;
 import com.web.dev.entity.SelectionHistory;
+import com.web.dev.entity.SportLevel;
 import com.web.dev.entity.User;
-import com.web.dev.repository.PostRepository;
-import com.web.dev.repository.SelectionHistoryRepository;
-import com.web.dev.repository.UserRepository;
-import com.web.dev.repository.ViewHistoryRepository;
+import com.web.dev.repository.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -21,12 +19,14 @@ public class UserService {
     private final ViewHistoryRepository viewHistoryRepository;
     private final SelectionHistoryRepository selectionHistoryRepository;
     private final PostRepository postRepository;
+    private final SportLevelRepository sportLevelRepository;
 
-    public UserService(UserRepository userRepository, ViewHistoryRepository viewHistoryRepository, SelectionHistoryRepository selectionHistoryRepository, PostRepository postRepository) {
+    public UserService(UserRepository userRepository, ViewHistoryRepository viewHistoryRepository, SelectionHistoryRepository selectionHistoryRepository, PostRepository postRepository, SportLevelRepository sportLevelRepository) {
         this.userRepository = userRepository;
         this.viewHistoryRepository = viewHistoryRepository;
         this.selectionHistoryRepository = selectionHistoryRepository;
         this.postRepository = postRepository;
+        this.sportLevelRepository = sportLevelRepository;
     }
 
     public User getUserByFusionId(String fusionId) {
@@ -89,5 +89,27 @@ public class UserService {
         post.setPostPicA(post.getId() + "2_" + file2.replaceAll(" ", "_"));
         postRepository.save(post);
         return post;
+    }
+
+    public Integer getSportLevel(Integer userId) {
+        Optional<SportLevel> optionalSportLevel = sportLevelRepository.findByUserId(userId);
+        if (optionalSportLevel.isEmpty()) {
+            return null;
+        }
+        return optionalSportLevel.get().getLevel();
+    }
+
+    public void saveLevel(Integer userId, Integer level) {
+        Optional<SportLevel> optionalSportLevel = sportLevelRepository.findByUserId(userId);
+        if (optionalSportLevel.isEmpty()) {
+            SportLevel sportLevel = new SportLevel();
+            sportLevel.setLevel(level);
+            sportLevel.setUserId(userId);
+            sportLevelRepository.save(sportLevel);
+        } else {
+            SportLevel sl = optionalSportLevel.get();
+            sl.setLevel(level);
+            sportLevelRepository.save(sl);
+        }
     }
 }

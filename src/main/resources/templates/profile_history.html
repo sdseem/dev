@@ -8,9 +8,9 @@
     <title>Профиль</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./css/profile_history.css" type="text/css">
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/profile_history.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -30,7 +30,7 @@
                 <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
             </li>
             <li>
-                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
             </li>
             <li>
                 <div class="dropdown">
@@ -43,7 +43,7 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
                     <div id="sublink1" class="dropdown-content">
                     </div>
                 </div>
@@ -76,10 +76,13 @@
 
         <div class="user_nav_menu">
             <div class="user_icon">
-                <img width="70px" src="images/user_icon.png">
+                <img width="70px" src="/images/user_icon.png">
             </div>
             <div class="user_button_update">
                 <input type="button" onclick="location.href = 'http://localhost:8100/profile/update';" id="button_update" class="profile_double-border-button"  value="Редактировать">
+            </div>
+            <div class="user_button_addpost">
+                <input type="button" onclick="location.href = 'http://localhost:8100/edit/publication';" id="button_post_add" class="profile_double-border-button"  value="Добавить новость">
             </div>
             <div class="user_button_exit">
                 <input type="button" onclick="location.href = 'http://localhost:9011/oauth2/logout?client_id=44f5052e-f85b-4900-b3e8-868933c7682c';" id="button_exit" class="profile_double-border-button"  value="Выйти">
@@ -236,7 +239,7 @@
 
                                 <div class="history_size_eq">
                                     Размер:&nbsp;
-                                    <div class="history_size_num">
+                                    <div th:text="${h.getMountSize()}" class="history_size_num">
                                         Подбирается под ботинки
                                     </div>
                                 </div>
@@ -287,9 +290,9 @@
 
     <div class="col2">
         <h4>Мой профиль</h4>
-        <a href="http://localhost:8100">Войти</a>
-        <a href="http://localhost:8100">Зарегистрироваться</a>
-        <a href="http://localhost:8100">Помощь</a>
+        <a href="http://localhost:8100/profile">Войти</a>
+        <a href="http://localhost:8100/profile">Зарегистрироваться</a>
+        <a href="http://localhost:8100/profile">Помощь</a>
     </div>
     <div class="col3">
         <h4>Контакты</h4>
@@ -299,9 +302,8 @@
     </div>
 
 </footer>
-    <script src="./js/script.js"></script>
+    <script src="/js/script.js"></script>
     <script type="text/javascript">
-
     </script>
 </body>
 

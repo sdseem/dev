@@ -89,11 +89,47 @@ body {
 #header_navigation {
   margin: auto;
 }
+.logo_title{
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.footer_logo_title{
+  color: #f1f1f1;
+  text-decoration: none;
+  font-family: "MuseoSans700";
+  font-size: 28px;
+}
 
 .logo {
   font-family: "MuseoSans700";
   font-size: 14px;
   font-weight: 600;
+  display: flex;
+  flex-direction: row;
+}
+.logo:link {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-family: "MuseoSans700";
+  font-size: 28px;
+
+
+}
+.logo:visited {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-family: "MuseoSans700";
+  font-size: 28px;
+
+}
+.logo:active {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-family: "MuseoSans700";
+  font-size: 28px;
+
 }
 
 #header_navigation li {
@@ -272,49 +308,6 @@ footer .footer_logo {
   align-items: center;
   color: #f5f5f5;
   text-decoration: none;
-}
-
-.logo_title{
-  display: flex;
-  align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-.footer_logo_title{
-  color: #f1f1f1;
-  text-decoration: none;
-  font-family: "MuseoSans700";
-  font-size: 28px;
-}
-
-.logo {
-  font-family: "MuseoSans700";
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-  flex-direction: row;
-}
-.logo:link {
-  color: #f5f5f5;
-  text-decoration: none;
-  font-family: "MuseoSans700";
-  font-size: 28px;
-
-
-}
-.logo:visited {
-  color: #f5f5f5;
-  text-decoration: none;
-  font-family: "MuseoSans700";
-  font-size: 28px;
-
-}
-.logo:active {
-  color: #f5f5f5;
-  text-decoration: none;
-  font-family: "MuseoSans700";
-  font-size: 28px;
-
 }
 
 /*max-width 800px*/
@@ -925,40 +918,3 @@ h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-
-
-
-
-.user_help {
-  display: flex;
-  height: 100px;
-  width: 100%;
-  margin-bottom: 5%;
-  align-items: center;
-}
-
-.help {
-  padding: 17px 20px 20px;
-  display: flex;
-  height: 70px;
-  width: 70px;
-  margin-left: 30px;
-  border-radius: 70px;
-  border: #fff719;
-  color: #fff719;
-  background-color: #fff719;
-  transition: 0.5s;
-  font-family: "MuseoSans500";
-  font-size: 16px;
-  background-image: url(/images/chat-vec.png);
-}
-
-.help:hover, .help:focus{
-  width: 400px;
-  color: #000000;
-}
-
-
-
-

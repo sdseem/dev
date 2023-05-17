@@ -68,4 +68,7 @@ public class SelectionHistory {
 
     @Column(name = "pole_len")
     private String poleLen;
+
+    @Column(name = "mount_size")
+    private String mountSize;
 }

@@ -15,47 +15,55 @@
 </head>
 
 <body>
-    <section id="header">
-        <a class="logo" href="./index.html">
-            <img src="/images/iconex2.png" alt="" height="45px">
-        </a>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
 
-        <div style="display: flex;">
-            <ul id="header_navigation">
-                <li><a class="nav_link1 link" href="./blog.html">Лента</a></li>
-                <li>
-                    <a class="link nav_link2" href="">Новичкам</a>
-                </li>
-                <li>
-                    <div class="dropdown">
-                        <a class="link nav_link3" href="">Курорты</a>
-                        <div id="sublink" class="dropdown-content">
-                            <a href="#">Россия</a>
-                            <a href="#">Зарубежье</a>
-                        </div>
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
                     </div>
-                </li>
-                <li>
-                    <div class="dropdown">
-                        <a class="link nav_link4" href="./equipment.html">Инвентарь</a>
-                        <div id="sublink" class="dropdown-content">
-                            <a href="#">Горные лыжи</a>
-                            <a href="#">Сноуборд</a>
-                            <a href="#">Аксессуары</a>
-                        </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
+                    <div id="sublink1" class="dropdown-content">
                     </div>
-                </li>
-                <li id="lc"><a href="./login_form.html"><button class="nav_link5">Войти</button></a></li>
-                <a href="#" id="close"><img src="/images/close.png" height="20px"></a>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
 
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
 
-        </div>
-    </section>
+    </div>
+</section>
 
     <div class="post_create_selection_title_container">
         <div class="post_create_selection_title_container_item">
@@ -128,27 +136,21 @@
         <div class="col1">
             <h4>Навигация</h4>
             <a href="http://localhost:8100/blog">Лента</a>
-            <a href="http://localhost:8100/blog?tag=Новичкам">Обучение</a>
             <a href="http://localhost:8100/resorts">Курорты</a>
-            <a href="http://localhost:8100/cart">Подбор инвентаря</a>
-
+            <a href="http://localhost:8100/cart">Инвентарь</a>
         </div>
 
         <div class="col2">
-            <h4>Мой аккаунт</h4>
+            <h4>Мой профиль</h4>
             <a href="http://localhost:8100/profile">Войти</a>
             <a href="http://localhost:8100/profile">Зарегистрироваться</a>
             <a href="http://localhost:8100/profile">Помощь</a>
         </div>
         <div class="col3">
             <h4>Контакты</h4>
-            <p><strong>Адрес:</strong> г.Саратов</p>
+            <p><strong>Адрес:</strong> г.Москва</p>
             <p><strong>Телефон:</strong> +7(999)999 99 99</p>
-            <p><strong>Часы работы:</strong>круглосуточно</p>
-            <div class="follow">
-            </div>
-
-
+            <p><strong>Часы работы:</strong> круглосуточно</p>
         </div>
 
     </footer>

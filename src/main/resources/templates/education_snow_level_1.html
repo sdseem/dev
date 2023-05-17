@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/education_snow_level_1.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
+                    <div id="sublink1" class="dropdown-content">
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="selection_title_container">
+        <div class="selection_title_container_item">
+            <div class="selection_title_container_item_theme">Уровень 1. Безопасность при падениях на сноуборде</div>
+        </div>
+    </div>
+
+    <div id="sel_content" class="wrapper">
+
+        <div id="quest1">
+
+            <div class="edu_img1">
+                <img class="img1" src="./images/edus1.png">
+            </div>
+
+            <div class="title1">
+                Почему мы падаем
+            </div>
+            <div class="title2">
+                Чтобы держать равновесие в обычной жизни нам не нужно особо напрягаться — тело с детства знает шаблоны
+                поведения, которые помогают стоять, бежать или ползти. При катании на сноуборде всё по другому.
+                Сноубордисты цепляют обе ноги к доске и вместо ступней начинают балансировать на тонком канте. Они
+                управляют доской с помощью наклонов и использования центробежных сил. В обычных прогулках такого не
+                встретишь.
+
+            </div>
+            <div class="title2">
+                Чаще всего падения на сноуборде происходят из-за трех вещей:
+            </div>
+            <div class="title2">
+                &bull; Спешим при освоении новых элементов;<br>
+                &bull; Отвлекаемся;<br>
+                &bull; Не разминаемся и устаем.
+            </div>
+            <div>
+                <div class="line">
+
+                </div>
+                <div class="slogan">
+                    Не спеши. Не отвлекайся. Разминайся.
+                </div>
+
+                <div class="line">
+
+                </div>
+                <div class="title1">
+                    Как безопасно падать на сноуборде?
+                </div>
+                <div class="title2">
+                    Чаще всего сноубордисты падают из-за того, что цепляются за склон передним или задним кантом. Это
+                    происходит когда доска становиться на противоположный кант поперёк хода движения. В карвинге падения
+                    помягче — вместо хлёстких ударов о снег при "ловле кантов", сноубордисты проваливаются внутрь
+                    поворота и садятся на склон.
+                </div>
+                <div class="title2">
+                    Отрабатывать технику падения нужно в спокойной обстановке в обе стороны. Это поможет снизить риск
+                    травм в экстренной ситуации.
+                </div>
+
+                <div class="title1">
+                    Падаем на задний кант
+                </div>
+                <div class="title2">
+                    Сноубордисты падают назад, когда учатся ехать на носках, но ещё не привыкли напрягать голеностопный
+                    сустав. В первые разы нужно быть особенно внимательными при вставании с переднего канта и следить за
+                    пятками. Их легко опустить и «убраться» ещё до начала движения.
+
+                    На следующем этапе опасность зацепиться пятками за склон появится, когда вы начнёте осваивать
+                    повороты. Чтобы подстраховаться делайте больше подводящих упражнений и не меняйте кант поперёк
+                    склона.
+                </div>
+                <div class="title2">
+                    При падении назад чаще всего страдают руки, копчик и голова. Чтобы их уберечь прижмите подбородок к
+                    груди, округлите спину и спрячьте руки. Быстро согните ноги и сгруппируйтесь, чтобы упасть с меньшей
+                    высоты. Потом перекатитесь по спине и подождите пока энергия погасится.
+                </div>
+
+                <div class="title1">
+                    Падаем на передний кант
+                </div>
+                <div class="title2">
+                    Сноубордисты падают вперёд, когда катятся на пятках и случайно опускают носки. Обычно это происходит
+                    на неровных трассах и в свежем снегу, когда легко зацепиться за бугорки и провалиться в снег. Если
+                    вы только начинаете кататься, то не разгоняйтесь сильно на заднем канте. Чем больше скорость, тем
+                    ближе ваши носки к снегу, а риск упасть — выше.
+                </div>
+                <div class="title2">
+                    При падении вперёд страдают руки и колени. Чтобы их уберечь сожмите кисти в кулаки, прижмите к груди
+                    и быстро согните ноги. В тот момент, когда склон станет параллельно телу распрямляйтесь как пружина
+                    и отталкивайтесь от переднего канта. Так вы перенаправите энергию плоского удара вдоль склона и
+                    погасите инерцию падения.
+                </div>
+
+                <div class="line">
+
+                </div>
+                <div class="slogan">
+                    Легче всего тренироваться падать во время разминки или при движении на малых скоростях.
+                </div>
+
+                <div class="line">
+
+                </div>
+                <div class="edu_img1">
+                    <img class="img1" src="./images/edus2.png">
+                </div>
+
+
+                <div class="title1">
+                    Зачем нужна защита
+                </div>
+                <div class="title2">
+                    Сноуборд — активный вид спорта и от падений в нём не застрахован никто. Посреди склона могут до льда
+                    выкатать снег, вас могут подрезать любители снегокатов или поймать деревья в лесу. Если к правильной
+                    технике падения добавить немного пластиковой защиты, то хуже от этого точно не станет.
+
+
+                </div>
+                <div class="title2">
+                    Кроме прямого назначения — гасить удары, защита хорошо держит тепло. Сноубордисты пристёгиваются и
+                    ждут сидя. Они не могут долго стоять на канте, потому что на жестком снеге это требует лишних затрат
+                    энергии. Защита копчика и наколенники уберегут не только от случайных падений, но и от холода. Шлем
+                    защитит от задувающего ветра и спасёт маску от запотевания изнутри.
+                </div>
+            </div>
+        </div>
+
+        <div id="buttonres" class="resbut">
+            <div><a onclick="location.href='/education?sport=сноуборд&level=1'" class="double-border-button">Следующий уровень</a></div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div id="descr_result" class="recomendations_choice">
+        <div class="rec_content">
+            <div id="str1" class="title_recom"></div>
+            <div id="str2" class="descr_recom">
+
+            </div>
+            <div id="str3" class="descr_recom">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="./index.html"><img src="./images/iconex2.png" alt="" class="footer_logo" height="60px"></a>
+
+
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="./blog.html">Лента</a>
+            <a href="#">Обучение</a>
+            <a href="./resorts.html">Курорты</a>
+            <a href="#">Инвентарь</a>
+
+        </div>
+
+        <div class="col2">
+            <h4>Мой аккаунт</h4>
+            <a href="./login_form.html">Войти</a>
+            <a href="#">Зарегистрироваться</a>
+            <a href="#">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Москва</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong> круглосуточно</p>
+            <div class="follow">
+                <h4>Подписывайся: <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+</body>
+
+</html>

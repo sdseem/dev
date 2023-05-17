@@ -30,7 +30,7 @@
                 <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
             </li>
             <li>
-                <a class="link nav_link2" href="http://localhost:8100/blog?tag=Новичкам">Новичкам</a>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
             </li>
             <li>
                 <div class="dropdown">
@@ -43,9 +43,8 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <a class="link nav_link4" href="http://localhost:8100/cart">Инвентарь</a>
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
                     <div id="sublink1" class="dropdown-content">
-
                     </div>
                 </div>
             </li>
@@ -206,7 +205,7 @@
                             </div>
                             <div class="size_eq">
                                 Размер:&nbsp;
-                                <div class="size_num">
+                                <div th:if="${mountSize} != null" th:text="${mountSize}" class="size_num">
                                     Подбирается под ботинки
                                 </div>
                             </div>
@@ -250,11 +249,8 @@
         <div class="rec_content">
             <div class="title_recom">Дополнительные рекомендации по выбору снаряжения:</div>
 
-            <div class="descr_recom">
-                &bull;  Размер ботинка необходимо выбирать исключительно в магазине и только после измерения стопы специальным прибором.
-            </div>
-            <div class="descr_recom">
-                &bull;  Точная длина снаряда всегда разная и зависит от модели и производителя. Стоит ориентироваться на предлагаемый диапазон со сдвигом соответствующем точному росту относительно выбранного диапазона.
+            <div th:each="r : ${rec}" class="descr_recom" style="display: flex">
+                &bull; <div th:text="${r}" style="display: flex"></div>
             </div>
         </div>
 
@@ -276,9 +272,9 @@
 
         <div class="col2">
             <h4>Мой профиль</h4>
-            <a href="http://localhost:8100">Войти</a>
-            <a href="http://localhost:8100">Зарегистрироваться</a>
-            <a href="http://localhost:8100">Помощь</a>
+            <a href="http://localhost:8100/profile">Войти</a>
+            <a href="http://localhost:8100/profile">Зарегистрироваться</a>
+            <a href="http://localhost:8100/profile">Помощь</a>
         </div>
         <div class="col3">
             <h4>Контакты</h4>

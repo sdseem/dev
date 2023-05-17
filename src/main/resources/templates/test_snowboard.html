@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/test_snowboard.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<section id="header">
+    <a class="logo" href="http://localhost:8100">
+        <img th:src="@{../images/iconex2.png}" alt="" height="45px">
+        <div class="logo_title">HILL LIFE</div>
+    </a>
+
+    <div style="display: flex;">
+        <ul id="header_navigation">
+            <li>
+                <a class="link nav_link_project" href="http://localhost:8100/about">О проекте</a>
+            </li>
+            <li>
+                <a class="nav_link1 link" href="http://localhost:8100/blog">Лента</a>
+            </li>
+            <li>
+                <a class="link nav_link2" href="http://localhost:8100/education">Новичкам</a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link3" href="http://localhost:8100/resorts">Курорты</a>
+                    <div id="sublink" class="dropdown-content">
+                        <a href="http://localhost:8100/resorts?place=Россия">Россия</a>
+                        <a href="http://localhost:8100/resorts?place=Зарубежье">Зарубежье</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <a class="link nav_link4" href="http://localhost:8100/cart">Подбор снаряжения</a>
+                    <div id="sublink1" class="dropdown-content">
+                    </div>
+                </div>
+            </li>
+            <li id="lc">
+                <a href="http://localhost:8100/profile">
+                    <button th:if="${fullname} == null" class="nav_link5">Профиль</button>
+                    <button th:if="${fullname} != null" th:text="${fullname}" class="nav_link5">Профиль</button>
+                </a>
+            </li>
+            <a href="#" id="close"><img th:src="@{../images/close.png}" height="20px"></a>
+
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href=""><i style="color:aliceblue" class="fas fa-user"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+</section>
+
+    <div class="selection_title_container">
+        <div class="selection_title_container_item">
+            <div class="selection_title_container_item_theme">Тест на проверку готовности к катанию на сноуборде</div>
+        </div>
+    </div>
+
+    <div id="sel_content" class="wrapper">
+
+        <div id="quest1">
+            <div class="title_question">1. На какой картинке сноубордист выбрал правильную стойку?</div>
+            <div class="answers1">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw1_1()" type="checkbox" id="qw1_1" value="indigo">
+                    <label for="qw1_1"><img width="150px" src="/images/test1.png"></label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw1_2()" type="checkbox" id="qw1_2" value="red">
+                    <label for="qw1_2"><img width="150px" src="/images/test2.png"></label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw1_3()" type="checkbox" id="qw1_3" value="brown">
+                    <label for="qw1_3"><img width="150px" src="/images/test3.png"></label>
+                </div>
+            </div>
+        </div>
+
+        <div id="quest2">
+            <div class="title_question">2. Выберите неправильное суждение. При падении сноубордист должен:</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw2_1()" type="checkbox" id="qw2_1">
+                    <label for="qw2_1">Сгруппироваться</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw2_2()" type="checkbox" id="qw2_2">
+                    <label for="qw2_2">Ничего не делать</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw2_3()" type="checkbox" id="qw2_3">
+                    <label for="qw2_3">Пытаться продолжить движение</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="quest3">
+            <div class="title_question">3. Необходима ли пластиковая защита для безопасности катания?</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw3_1()" type="checkbox" id="qw3_1">
+                    <label for="qw3_1">Да</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw3_2()" type="checkbox" id="qw3_2">
+                    <label for="qw3_2">Нет</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw3_3()" type="checkbox" id="qw3_3">
+                    <label for="qw3_3">Защита - пустая трата денег</label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest4">
+            <div class="title_question">4. Какой из кантов сноуборда важнее?</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw4_1()" type="checkbox" id="qw4_1">
+                    <label for="qw4_1">Передний</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw4_2()" type="checkbox" id="qw4_2">
+                    <label for="qw4_2">Задний</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw4_3()" type="checkbox" id="qw4_3">
+                    <label for="qw4_3">Оба</label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest5">
+            <div class="title_question">5. На какой из кратинок сноубордист правильно переносит вес для бокового
+                соскальзывания?</div>
+            <div class="answers1">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw5_1()" type="checkbox" id="qw5_1">
+                    <label for="qw5_1"><img width="150px" src="/images/test4.png"></label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw5_2()" type="checkbox" id="qw5_2">
+                    <label for="qw5_2"><img width="150px" src="/images/test5.png"></label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest6">
+            <div class="title_question">6. Куда должен смотреть сноубордист во время движения?</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw6_1()" type="checkbox" id="qw6_1">
+                    <label for="qw6_1">Под ноги</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw6_2()" type="checkbox" id="qw6_2">
+                    <label for="qw6_2">Вперед</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw6_3()" type="checkbox" id="qw6_3">
+                    <label for="qw6_3">Оглядываться назад, чтобы видеть других спортсменов</label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest7">
+            <div class="title_question">7. Как нужно вставать для того чтобы начать движение?</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw7_1()" type="checkbox" id="qw7_1">
+                    <label for="qw7_1">Поперек линии ската</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw7_2()" type="checkbox" id="qw7_2">
+                    <label for="qw7_2">Вдоль линии ската</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw7_3()" type="checkbox" id="qw7_3">
+                    <label for="qw7_3">На 45 градусов к линии ската</label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest8">
+            <div class="title_question">8. На какой из картинок положении тела снобордиста более устойчиво?</div>
+            <div class="answers1">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw8_1()" type="checkbox" id="qw8_1">
+                    <label for="qw8_1"><img width="150px" src="/images/test7.png"></label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw8_2()" type="checkbox" id="qw8_2">
+                    <label for="qw8_2"><img width="150px" src="/images/test6.png"></label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest9">
+            <div class="title_question">9. Что нужно сделать новичку перед началом катания?</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw9_1()" type="checkbox" id="qw9_1">
+                    <label for="qw9_1">Выбрать цвет снаряжения</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw9_2()" type="checkbox" id="qw9_2">
+                    <label for="qw9_2">Определить ведущую ногу</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw9_3()" type="checkbox" id="qw9_3">
+                    <label for="qw9_3">Ничего из перечисленного</label>
+                </div>
+            </div>
+
+        </div>
+        <div id="quest10">
+            <div class="title_question">10. Что делать, если вас потащит в бок?</div>
+            <div class="answers">
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw10_1()" type="checkbox" id="qw10_1">
+                    <label for="qw10_1">Куда тащит туда и поеду</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw10_2()" type="checkbox" id="qw10_2">
+                    <label for="qw10_2">Специально упасть</label>
+                </div>
+
+                <div class="checkbox">
+                    <input class="custom-checkbox" onchange="qw10_3()" type="checkbox" id="qw10_3">
+                    <label for="qw10_3">Присмотреться к линии ската</label>
+                </div>
+            </div>
+
+        </div>
+        <div id="buttonres" class="resbut">
+            <a onclick="location.href='/test?result='+result()" class="double-border-button">Узнать результат</a>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div id="descr_result" class="recomendations_choice">
+        <div class="rec_content">
+            <div id="str1" class="title_recom"></div>
+            <div id="str2" class="descr_recom">
+
+            </div>
+            <div id="str3" class="descr_recom">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="section-p1 footer">
+        <div class="col">
+            <a href="./index.html"><img src="/images/iconex2.png" alt="" class="footer_logo" height="60px"></a>
+
+
+        </div>
+        <div class="col1">
+            <h4>Навигация</h4>
+            <a href="./blog.html">Лента</a>
+            <a href="#">Обучение</a>
+            <a href="./resorts.html">Курорты</a>
+            <a href="#">Инвентарь</a>
+
+        </div>
+
+        <div class="col2">
+            <h4>Мой аккаунт</h4>
+            <a href="./login_form.html">Войти</a>
+            <a href="#">Зарегистрироваться</a>
+            <a href="#">Помощь</a>
+        </div>
+        <div class="col3">
+            <h4>Контакты</h4>
+            <p><strong>Адрес:</strong> г.Москва</p>
+            <p><strong>Телефон:</strong> +7(999)999 99 99</p>
+            <p><strong>Часы работы:</strong> круглосуточно</p>
+            <div class="follow">
+                <h4>Подписывайся: <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </h4>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+    <script src="/js/script.js"></script>
+    <script type="text/javascript">
+
+
+
+
+        var s1 = document.getElementById('qw1_1');
+        var s2 = document.getElementById('qw1_2');
+        var s3 = document.getElementById('qw1_3');
+
+        var arrayResult = Array(10);
+
+        var count = 0;
+        function result() {
+            count = 0;
+            console.log(arrayResult.toString)
+
+            if ((s1.checked == false) && (s2.checked == false) && (s3.checked == false)) {
+                arrayResult[0] = false;
+            }
+            if ((w2_s1.checked == false) && (w2_s2.checked == false) && (w2_s3.checked == false)) {
+                arrayResult[1] = false;
+            }
+            if ((w3_s1.checked == false) && (w3_s2.checked == false) && (w3_s3.checked == false)) {
+                arrayResult[2] = false;
+            }
+            if ((w4_s1.checked == false) && (w4_s2.checked == false) && (w4_s3.checked == false)) {
+                arrayResult[3] = false;
+            }
+            if ((w5_s1.checked == false) && (w5_s2.checked == false)) {
+                arrayResult[4] = false;
+            }
+            if ((w6_s1.checked == false) && (w6_s2.checked == false) && (w6_s3.checked == false)) {
+                arrayResult[5] = false;
+            }
+            if ((w7_s1.checked == false) && (w7_s2.checked == false) && (w7_s3.checked == false)) {
+                arrayResult[6] = false;
+            }
+            if ((w8_s1.checked == false) && (w8_s2.checked == false)) {
+                arrayResult[7] = false;
+            }
+            if ((w9_s1.checked == false) && (w9_s2.checked == false) && (w9_s3.checked == false)) {
+                arrayResult[8] = false;
+            }
+            if ((w10_s1.checked == false) && (w10_s2.checked == false) && (w10_s3.checked == false)) {
+                arrayResult[9] = false;
+            }
+
+            for (let i = 0; i < arrayResult.length; i += 1) {
+                if (arrayResult[i] == true) {
+                    count = count + 1;
+                }
+            }
+            console.log(count);
+
+            var d1 = document.getElementById('str1');
+            var d2 = document.getElementById('str2');
+            var d3 = document.getElementById('str3');
+
+
+            var pr = 10 * count;
+
+            var str1 = "Ваш результат: " + count + " / 10";
+
+            var str2 = "Вы ответили правильно на " + pr + "% вопросов";
+            var str3 = "";
+
+            if (count <= 5) {
+                str3 = "По результатам теста вы не готовы к катанию на сноуборде!";
+            } else if ((count > 5) && (count <= 8)) {
+                str3 = "По результатам теста вы не идеально готовы к катанию на сноуборде!"
+            } else if (count > 8) {
+                str3 = "По результатам теста вы идеально готовы к катанию на сноуборде!"
+            }
+
+            d1.innerHTML = str1;
+            d2.innerHTML = str2;
+            d3.innerHTML = str3;
+
+            
+
+            descr_result.style.display = 'block';
+            
+            return pr;
+          
+
+
+
+        }
+
+
+        function qw1_1() {
+
+            if (s1.checked) {
+                s2.checked = false;
+                s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[0] = false;
+            }
+        };
+        function qw1_2() {
+
+            if (s2.checked) {
+                s1.checked = false;
+                s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[0] = true;
+            }
+        };
+        function qw1_3() {
+
+            if (s3.checked) {
+                s2.checked = false;
+                s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[0] = false;
+            }
+        };
+
+        var w2_s1 = document.getElementById('qw2_1');
+        var w2_s2 = document.getElementById('qw2_2');
+        var w2_s3 = document.getElementById('qw2_3');
+        function qw2_1() {
+
+            if (w2_s1.checked) {
+                w2_s2.checked = false;
+                w2_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[1] = true;
+            }
+        };
+        function qw2_2() {
+
+            if (w2_s2.checked) {
+                w2_s1.checked = false;
+                w2_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[1] = false;
+            }
+        };
+        function qw2_3() {
+
+            if (w2_s3.checked) {
+                w2_s2.checked = false;
+                w2_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[1] = false;
+            }
+        };
+
+        var w3_s1 = document.getElementById('qw3_1');
+        var w3_s2 = document.getElementById('qw3_2');
+        var w3_s3 = document.getElementById('qw3_3');
+        function qw3_1() {
+
+            if (w3_s1.checked) {
+                w3_s2.checked = false;
+                w3_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[2] = true;
+            }
+        };
+        function qw3_2() {
+
+            if (w3_s2.checked) {
+                w3_s1.checked = false;
+                w3_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[2] = false;
+            }
+        };
+        function qw3_3() {
+
+            if (w3_s3.checked) {
+                w3_s2.checked = false;
+                w3_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[2] = false;
+            }
+        };
+
+        var w4_s1 = document.getElementById('qw4_1');
+        var w4_s2 = document.getElementById('qw4_2');
+        var w4_s3 = document.getElementById('qw4_3');
+        function qw4_1() {
+
+            if (w4_s1.checked) {
+                w4_s2.checked = false;
+                w4_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[3] = false;
+            }
+        };
+        function qw4_2() {
+
+            if (w4_s2.checked) {
+                w4_s1.checked = false;
+                w4_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[3] = false;
+            }
+        };
+        function qw4_3() {
+
+            if (w4_s3.checked) {
+                w4_s2.checked = false;
+                w4_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[3] = true;
+            }
+        };
+
+        var w5_s1 = document.getElementById('qw5_1');
+        var w5_s2 = document.getElementById('qw5_2');
+
+        function qw5_1() {
+
+            if (w5_s1.checked) {
+                w5_s2.checked = false;
+                console.log("выбран первый");
+                arrayResult[4] = true;
+            }
+        };
+        function qw5_2() {
+
+            if (w5_s2.checked) {
+                w5_s1.checked = false;
+                console.log("выбран второй");
+                arrayResult[4] = false;
+            }
+        };
+
+
+        var w6_s1 = document.getElementById('qw6_1');
+        var w6_s2 = document.getElementById('qw6_2');
+        var w6_s3 = document.getElementById('qw6_3');
+        function qw6_1() {
+
+            if (w6_s1.checked) {
+                w6_s2.checked = false;
+                w6_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[5] = false;
+            }
+        };
+        function qw6_2() {
+
+            if (w6_s2.checked) {
+                w6_s1.checked = false;
+                w6_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[5] = true;
+            }
+        };
+        function qw6_3() {
+
+            if (w6_s3.checked) {
+                w6_s2.checked = false;
+                w6_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[5] = false;
+            }
+        };
+
+
+
+        var w7_s1 = document.getElementById('qw7_1');
+        var w7_s2 = document.getElementById('qw7_2');
+        var w7_s3 = document.getElementById('qw7_3');
+        function qw7_1() {
+
+            if (w7_s1.checked) {
+                w7_s2.checked = false;
+                w7_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[6] = true;
+            }
+        };
+        function qw7_2() {
+
+            if (w7_s2.checked) {
+                w7_s1.checked = false;
+                w7_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[6] = false;
+            }
+        };
+        function qw7_3() {
+
+            if (w7_s3.checked) {
+                w7_s2.checked = false;
+                w7_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[6] = false;
+            }
+        };
+
+        var w8_s1 = document.getElementById('qw8_1');
+        var w8_s2 = document.getElementById('qw8_2');
+
+        function qw8_1() {
+
+            if (w8_s1.checked) {
+                w8_s2.checked = false;
+
+                console.log("выбран первый");
+                arrayResult[7] = true;
+            }
+        };
+        function qw8_2() {
+
+            if (w8_s2.checked) {
+                w8_s1.checked = false;
+                console.log("выбран второй");
+                arrayResult[7] = false;
+            }
+        };
+
+
+        var w9_s1 = document.getElementById('qw9_1');
+        var w9_s2 = document.getElementById('qw9_2');
+        var w9_s3 = document.getElementById('qw9_3');
+        function qw9_1() {
+
+            if (w9_s1.checked) {
+                w9_s2.checked = false;
+                w9_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[8] = false;
+            }
+        };
+        function qw9_2() {
+
+            if (w9_s2.checked) {
+                w9_s1.checked = false;
+                w9_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[8] = true;
+            }
+        };
+        function qw9_3() {
+
+            if (w9_s3.checked) {
+                w9_s2.checked = false;
+                w9_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[8] = false;
+            }
+        };
+
+        var w10_s1 = document.getElementById('qw10_1');
+        var w10_s2 = document.getElementById('qw10_2');
+        var w10_s3 = document.getElementById('qw10_3');
+        function qw10_1() {
+
+            if (w10_s1.checked) {
+                w10_s2.checked = false;
+                w10_s3.checked = false;
+                console.log("выбран первый");
+                arrayResult[9] = false;
+            }
+        };
+        function qw10_2() {
+
+            if (w10_s2.checked) {
+                w10_s1.checked = false;
+                w10_s3.checked = false;
+                console.log("выбран второй");
+                arrayResult[9] = false;
+            }
+        };
+        function qw10_3() {
+
+            if (w10_s3.checked) {
+                w10_s2.checked = false;
+                w10_s1.checked = false;
+                console.log("выбран третий");
+                arrayResult[9] = true;
+            }
+        };
+
+    </script>
+</body>
+
+</html>

@@ -61,6 +61,8 @@ public class UserController {
     @GetMapping("/profile/update")
     public String showProfileUpdatePage(Model model,
                                         @AuthenticationPrincipal OidcUser user) {
+        User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
+        model.addAttribute("fullname", userData.getFullName());
         model.addAttribute("newUserInfo", new UserInfo());
         return "profile_update";
     }
@@ -76,6 +78,8 @@ public class UserController {
     @GetMapping("/edit/publication")
     public String showPostCreation(Model model,
                                    @AuthenticationPrincipal OidcUser user) {
+        User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
+        model.addAttribute("fullname", userData.getFullName());
         model.addAttribute("newPost", new PostCreateDto());
         return "post_create";
     }
@@ -86,11 +90,12 @@ public class UserController {
                            @RequestParam(name = "post_image2") MultipartFile file2,
                            @AuthenticationPrincipal OidcUser user,
                            HttpServletResponse response) throws IOException {
+        User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
         if (file1 == null) throw new NoSuchElementException();
         if (file1.getOriginalFilename() == null) throw new NoSuchElementException();
         if (file2 == null) throw new NoSuchElementException();
         if (file2.getOriginalFilename() == null) throw new NoSuchElementException();
-        Post post = userService.addPost(user.getSubject(), postCreateDto, file1.getOriginalFilename(), file2.getOriginalFilename());
+        Post post = userService.addPost(userData.getFusionId(), postCreateDto, file1.getOriginalFilename(), file2.getOriginalFilename());
         Path currentRelativePath = Paths.get("");
         String folder = currentRelativePath.toAbsolutePath() + "/imgs/";
         byte[] img1 = file1.getBytes();
@@ -100,5 +105,49 @@ public class UserController {
         Path path2 = Paths.get(folder + post.getPostPicA());
         Files.write(path2, img2);
         response.sendRedirect("http://localhost:8100/blog/publication/" + post.getId());
+    }
+
+
+    @GetMapping("/education")
+    public String startEdu(Model model,
+                           @AuthenticationPrincipal OidcUser user,
+                           @RequestParam(name = "sport", required = false) String sport,
+                           @RequestParam(name = "level", required = false) Integer lvl) {
+        if (user != null) {
+            User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
+            model.addAttribute("fullname");
+            Integer level = userService.getSportLevel(userData.getId());
+            if (lvl != null) {
+                userService.saveLevel(userData.getId(), lvl);
+                switch (lvl) {
+                    case 0 -> {return "education_snow_level_1";}
+                    case 1 -> {return "education_snow_level_2";}
+                    case 2 -> {return "education_snow_level_3";}
+                    case 3 -> {return "education_snow_level_4";}
+                }
+            } else {
+                if (level != null) {
+                    switch (level) {
+                        case 0 -> {return "education_snow_level_1";}
+                        case 1 -> {return "education_snow_level_2";}
+                        case 2 -> {return "education_snow_level_3";}
+                        case 3 -> {return "education_snow_level_4";}
+                    }
+                } else {
+                    return "education_sport";
+                }
+            }
+        } else {
+            model.addAttribute("fullname", null);
+        }
+        return "education_sport";
+    }
+
+    @GetMapping("/education/test")
+    public String getTest(Model model,
+                          @AuthenticationPrincipal OidcUser user) {
+        User userData = userService.getOrRegister(user.getSubject(), user.getFullName(), user.getEmail());
+        model.addAttribute("fullname", userData.getFullName());
+        return "test_snowboard";
     }
 }
